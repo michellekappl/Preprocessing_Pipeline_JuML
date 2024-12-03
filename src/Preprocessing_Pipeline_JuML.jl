@@ -1,5 +1,7 @@
 module Preprocessing_Pipeline_JuML
 
-# Write your package code here.
+timesx(x, y) = y*x
+
+export timesx
 
 end

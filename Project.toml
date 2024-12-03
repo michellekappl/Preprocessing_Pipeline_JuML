@@ -3,5 +3,8 @@ uuid = "08ca93ca-ffbd-40e9-9748-42c73b2bdb32"
 authors = ["Michelle Kappl <michelle.kappl@gmail.com>", "Leon Schreiber <leonschreiber96@gmail.com>", "Marike Voßbeck <Marike_vossbeck@posteo.de>"]
 version = "1.0.0-DEV"
 
+[deps]
+Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
+
 [compat]
 julia = "1.10"

@@ -2,6 +2,9 @@ module Preprocessing_Pipeline_JuML
 
 timesx(x, y) = y*x
 
-export timesx
+include("cleaning_text.jl")
+include("one_hot_encoding.jl")
+
+export timesx, one_got_encoding, cleaning_text
 
 end

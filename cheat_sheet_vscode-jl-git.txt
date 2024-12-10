@@ -1,0 +1,6 @@
+- CHanges holen: Geh in Ordner
+
+- Changes committen: git add . | git commit -m "commit message" | git push
+
+- Terminal in VSCode imm pakcage öffnen: ALT+o, ALT+j
+-

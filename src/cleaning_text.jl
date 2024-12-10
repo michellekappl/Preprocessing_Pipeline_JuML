@@ -1,5 +1,5 @@
 
-module Preprocessing_Pipeline_JuML
+
     function cleaning_text(input) #allowed inputs: List of strings and strings
         if typeof(input)==String #doing direct noise cleaning
             cleaned_text=replace(lowercase(input), r"[^a-z\s]" => "") #removing non alphabetical elements
@@ -12,5 +12,4 @@ module Preprocessing_Pipeline_JuML
         end
         return cleaned_text
     end
-export cleaning_text
-end
+    export cleaning_text

@@ -2,16 +2,16 @@ function one_hot(pipe :: TokenizedNlpPipe)
     """
     one_hot(x)
 
-    Create a one-hot-encoding out of given TokenizedNlpPipe
+    Create a one-hot-encoding out of give data and vocabulary
 
     """
 
     vocab_dict = get_vocab_dict(pipe.vocabulary)
-    tokens = []
+    tokens = Vector{Vector{Vector{Int}}}()
     length_vocab = length(pipe.vocabulary)
 
     for (i, sentence) in enumerate(pipe.data)
-        sentence_tokens = []
+        sentence_tokens = Vector{Vector{Int}}()
         for word in sentence
             word_vector = zeros(length_vocab)
             word_vector[vocab_dict[word]] = 1
@@ -20,7 +20,7 @@ function one_hot(pipe :: TokenizedNlpPipe)
         push!(tokens, sentence_tokens)
     end
 
-    return VectorizedNlpPipe(tokens=tokens, vocabulary=vocab_dict)
+    return VectorizedNlpPipe(tokens, vocab_dict)
 end
 
 function get_vocab_dict(vocab)
@@ -31,7 +31,7 @@ function get_vocab_dict(vocab)
 
     """
 
-    vocab_dict = Dict()
+    vocab_dict = Dict{String, Int}()
     for (i, word) in enumerate(vocab)
         vocab_dict[word] = i
     end
@@ -39,3 +39,49 @@ function get_vocab_dict(vocab)
 end
 
 export one_hot
+
+
+# ___________________ without pipe _______________________
+
+function one_hot(data, vocabulary)
+    """
+    one_hot(x)
+
+    Create a one-hot-encoding out of give data and vocabulary
+
+    """
+
+    vocab_dict = get_vocab_dict(vocabulary)
+    tokens = Vector{Vector{Vector{Int}}}()
+    length_vocab = length(vocabulary)
+
+    for (i, sentence) in enumerate(data)
+        sentence_tokens = Vector{Vector{Int}}()
+        for word in sentence
+            word_vector = zeros(length_vocab)
+            word_vector[vocab_dict[word]] = 1
+            push!(sentence_tokens, word_vector)
+        end
+        push!(tokens, sentence_tokens)
+    end
+
+    return tokens, vocab_dict
+end
+
+function get_vocab_dict(vocab)
+    """
+    get_one_hot_for_vocab(vocab)
+
+    Create a Dict with idx in vector as values and words as keys
+
+    """
+
+    vocab_dict = Dict{String, Int}()
+    for (i, word) in enumerate(vocab)
+        vocab_dict[word] = i
+    end
+    return vocab_dict
+end
+
+export one_hot
+

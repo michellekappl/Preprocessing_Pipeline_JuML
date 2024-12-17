@@ -1,28 +1,27 @@
-function one_hot_encoding(pipe::TokenizedNlpPipe)::VectorizedNlpPipe
-    """
-    one_hot(x)
+function bag_of_words(pipe::TokenizedNlpPipe)::VectorizedNlpPipe
 
-    Create a one-hot-encoding out of given TokenizedNlpPipe
+    """
+    bag_of_words(x)
+
+    Create a bag-of-words-encoding out of given TokenizedNlpPipe
 
     """
 
     vocab_dict = get_vocab_dict(pipe.vocabulary)
-    tokens = Vector{Vector{Vector{Int}}}()
+    tokens = Vector{Vector{Int}}()
     length_vocab = length(pipe.vocabulary)
 
     for (i, doc) in enumerate(pipe.tokens)
-        doc_tokens = Vector{Vector{Int}}()
+        doc_tokens = Vector{Int}()
+        doc_tokens = zeros(length_vocab)
         for word in doc
-            word_vector = zeros(length_vocab)
-            word_vector[vocab_dict[word]] = 1
-            push!(doc_tokens, word_vector)
+            doc_tokens[vocab_dict[word]] += 1
         end
         push!(tokens, doc_tokens)
     end
 
     return VectorizedNlpPipe(tokens, vocab_dict)
 end
-
 
 function get_vocab_dict(vocab)
     """

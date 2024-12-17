@@ -24,6 +24,4 @@ test_corpus = [
         @test pipe.corpus[5] == "Check this out "
         @test pipe.corpus[6] == " is great. Follow us."
     end
-
-    # TODO Add more tests
 end

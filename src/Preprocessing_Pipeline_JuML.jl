@@ -1,10 +1,13 @@
 module Preprocessing_Pipeline_JuML
 
-timesx(x, y) = y*x
+include("pipes/NlpPipe.jl")
+include("pipes/TokenizedNlpPipe.jl")
+include("pipes/VectorizedNlpPipe.jl")
 
-include("cleaning_text.jl")
-include("one_hot_encoding.jl")
+include("tokenization/tokenizeLevel.jl")
+include("tokenization/tokenizer.jl")
 
-export timesx, one_got_encoding, cleaning_text
+include("preprocessing/removeNoise.jl")
 
+include("vectorization/oneHotEncoding.jl")
 end

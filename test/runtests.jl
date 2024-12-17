@@ -35,21 +35,22 @@ test_corpus = [
     @testset "tokenize" begin
         test_corpus = [
             "This is a document It has multiple sentences",
-            "Here is another one"
+            "Here is another one",
+            "abc"
         ]
 
         pipe = NlpPipe(test_corpus) |> tokenize
 
         # Default tokenizer should be word level
         @test pipe.tokens[1] == ["This", "is", "a", "document", "It", "has", "multiple", "sentences"]
-        @test pipe.tokens[2] == ["Here", "is", "another", "one."]
-
-        @enum TokenizeLevel character word
+        @test pipe.tokens[2] == ["Here", "is", "another", "one"]
 
         # Test character level tokenizer
-        pipe = NlpPipe(test_corpus) |> pipe -> tokenize(pipe, character)
-        @test pipe.tokens[1] == ["T", "h", "i", "s", " ", "i", "s", " ", "a", " ", "d", "o", "c", "u", "m", "e", "n", "t", ".", " ", "I", "t", " ", "h", "a", "s", " ", "m", "u", "l", "t", "i", "p", "l", "e", " ", "s", "e", "n", "t", "e", "n", "c", "e", "s", "."]
-        @test pipe.tokens[2] == ["H", "e", "r", "e", " ", "i" , "s", " ", "a", "n", "o", "t", "h", "e", "r", " ", "o", "n", "e", "."]
+        pipe = NlpPipe(test_corpus) |> pipe -> tokenize(pipe, :character)
+        @test pipe.tokens[3] == ["a", "b", "c"]
+
+        # Invalid tokenization level should throw an error
+        @test_throws ArgumentError tokenize(NlpPipe(test_corpus), :invalid)
     end
 
     # TODO Add more tests

@@ -13,7 +13,7 @@ Clone the repository and include the package in your Julia environment:
 
 ```bash
 git clone git@github.com:michellekappl/Preprocessing_Pipeline_JuML.git
-cd Preprocessing_Pipeline_JuML
+cd path/to/dir/Preprocessing_Pipeline_JuML
 ```
 
 Then, activate the package in Julia:

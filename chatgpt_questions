@@ -4,3 +4,91 @@ Explanation:
     - \d matches any single digit (0-9).
     - + matches one or more occurrences of the preceding element (in this case, digits).
 This means \d+ will match any sequence of consecutive digits in a string, regardless of how long the sequence is."
+
+Q: "can you list all word contractions that are possible in english language"
+A: "Here is a comprehensive list of common contractions in English, categorized for easier understanding. While this list may not be exhaustive, it includes nearly all widely used contractions:
+Contractions with "not"
+Contraction	Expansion
+aren't	are not
+can't	cannot
+couldn't	could not
+didn't	did not
+doesn't	does not
+don't	do not
+hadn't	had not
+hasn't	has not
+haven't	have not
+isn't	is not
+mightn't	might not
+mustn't	must not
+needn't	need not
+shouldn't	should not
+wasn't	was not
+weren't	were not
+won't	will not
+wouldn't	would not
+Contractions with "is/has"
+Contraction	Expansion
+he's	he is / he has
+she's	she is / she has
+it's	it is / it has
+that's	that is / that has
+there's	there is / there has
+where's	where is / where has
+who's	who is / who has
+what's	what is / what has
+how's	how is / how has
+Contractions with "will"
+Contraction	Expansion
+I'll	I will
+you'll	you will
+he'll	he will
+she'll	she will
+it'll	it will
+we'll	we will
+they'll	they will
+Contractions with "would/had"
+Contraction	Expansion
+I'd	I would / I had
+you'd	you would / you had
+he'd	he would / he had
+she'd	she would / she had
+it'd	it would / it had
+we'd	we would / we had
+they'd	they would / they had
+Contractions with "have"
+Contraction	Expansion
+I've	I have
+you've	you have
+we've	we have
+they've	they have
+who've	who have
+would've	would have
+could've	could have
+should've	should have
+might've	might have
+Contractions with "am"
+Contraction	Expansion
+I'm	I am
+Contractions with "are"
+Contraction	Expansion
+you're	you are
+we're	we are
+they're	they are
+Contractions with "let"
+Contraction	Expansion
+let's	let us
+Contractions with "there"
+Contraction	Expansion
+there's	there is / there has
+Contractions with "here"
+Contraction	Expansion
+here's	here is
+Miscellaneous Contractions
+Contraction	Expansion
+ain't	am not / is not / are not / has not / have not
+o'clock	of the clock
+y'all	you all
+ma'am	madam
+
+This list includes the most commonly used contractions in English. Note that some contractions (like "ain't" or "y'all") are informal or dialectal. Others, like "o'clock", are more specific in usage."

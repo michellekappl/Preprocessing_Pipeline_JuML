@@ -1,0 +1,6 @@
+Q: "is there a regex for finding digits within a string, independent of length?"
+A: "Yes, there is a regex for finding digits within a string regardless of their length. The pattern is: \d+
+Explanation:
+    - \d matches any single digit (0-9).
+    - + matches one or more occurrences of the preceding element (in this case, digits).
+This means \d+ will match any sequence of consecutive digits in a string, regardless of how long the sequence is."

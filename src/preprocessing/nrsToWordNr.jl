@@ -1,4 +1,6 @@
 """
+    number_to_word(input)
+
     Allows user to preprocess numbers within a string. Each number, independent of length gets replaced with word: *number*, 
     inputs: Strings and Vector{String}
     output: Strings and Vector{String} respectively

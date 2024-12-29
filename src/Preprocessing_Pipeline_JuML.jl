@@ -8,6 +8,8 @@ include("tokenization/tokenizeLevel.jl")
 include("tokenization/tokenizer.jl")
 
 include("preprocessing/removeNoise.jl")
+include("preprocessing/nrsToWordNr.jl")
+include("preprocessing/expandContractions.jl")
 
 include("vectorization/oneHotEncoding.jl")
 end

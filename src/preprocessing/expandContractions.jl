@@ -1,5 +1,6 @@
 """
     expand_contractions(input)
+
     Allows user to expand contractions like 'I've', 'can't' and so on. This program cannot differentiate between 'he has' and 'he is' as expansion for 'he's' (and same for she'd: she would/she had)
     The default is expanding any 's contraction to 'is', and 'd to 'had'. The contraction 'won't' is not yet correctly covered (turns into 'wo not').
     inputs: Strings and Vector{String}
@@ -13,7 +14,7 @@ function expand_contractions(input)
     )
     if typeof(input)==String
 
-        expanded = replace(input, r"(?:n't|'(?:ll|re|ve|d|s|m|t))" => suffix -> contractions_dict[suffix])
+        expanded = replace(input, r"(?:n't|'(?:ll|re|ve|d|s|m))" => suffix -> contractions_dict[suffix])
 
     elseif typeof(input)==Vector{String}       
         expanded=[]

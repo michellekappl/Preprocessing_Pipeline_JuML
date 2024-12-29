@@ -92,3 +92,7 @@ y'all	you all
 ma'am	madam
 
 This list includes the most commonly used contractions in English. Note that some contractions (like "ain't" or "y'all") are informal or dialectal. Others, like "o'clock", are more specific in usage."
+
+Q: "is there a regex that can find word contractions like we collected above"
+A: "Yes, you can use a regex to match English word contractions like those collected above. To do so, the regex should be designed to handle patterns involving an apostrophe (') followed by specific suffixes or entire contracted words. 
+    Here is a general regex that matches the common word contractions listed: \b(?:[a-zA-Z]+n't|[a-zA-Z]+'(?:ll|re|ve|d|s|m|t))\b"

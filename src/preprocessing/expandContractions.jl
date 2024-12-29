@@ -10,11 +10,11 @@
 
 function expand_contractions(input)
     contractions_dict = Dict(
-        "'s"=> " is", "n't"=>" not", "'ll"=> " will", "'ve"=> " have", "'d"=> " had", "'m" => " am", "'re" => " are" 
+       "n't"=>" not", "'s"=> " is",  "'ll"=> " will", "'ve"=> " have", "'d"=> " had", "'m" => " am", "'re" => " are" 
     )
     if typeof(input)==String
 
-        expanded = replace(input, r"(?:n't|'(?:ll|re|ve|d|s|m))" => suffix -> contractions_dict[suffix])
+        expanded = replace(input, r"(?:n't|'(?:s|ll|ve|d|m|re))" => suffix -> contractions_dict[suffix])
 
     elseif typeof(input)==Vector{String}       
         expanded=[]

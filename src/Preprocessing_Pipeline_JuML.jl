@@ -7,6 +7,8 @@ include("pipes/VectorizedNlpPipe.jl")
 include("tokenization/tokenizer.jl")
 
 include("preprocessing/removeNoise.jl")
+include("preprocessing/nrsToWordNr.jl")
+include("preprocessing/expandContractions.jl")
 
 include("vectorization/oneHotEncoding.jl")
 

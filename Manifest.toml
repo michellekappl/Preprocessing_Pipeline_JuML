@@ -2,7 +2,7 @@
 
 julia_version = "1.10.5"
 manifest_format = "2.0"
-project_hash = "321b41e1fcb4d352c2ce4caa7c139bd3dc35320b"
+project_hash = "bc0ee60cc88d2d29426eafa2f0b661954df9efb2"
 
 [[deps.Artifacts]]
 uuid = "56f22d72-fd6d-98f1-02f0-08ddc0907c33"
@@ -107,6 +107,11 @@ uuid = "9e88b42a-f829-5b0c-bbe9-9e923198166b"
 
 [[deps.Sockets]]
 uuid = "6462fe0b-24de-5631-8697-dd941f90decc"
+
+[[deps.StopWords]]
+git-tree-sha1 = "9e75d1504b18298a26da3d120ce9857fb0544621"
+uuid = "35248bf2-58a5-46a0-9b1d-c0a73a50a107"
+version = "1.0.1"
 
 [[deps.UUIDs]]
 deps = ["Random", "SHA"]

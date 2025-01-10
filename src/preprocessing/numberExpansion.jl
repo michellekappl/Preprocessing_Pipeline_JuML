@@ -1,5 +1,9 @@
-#changing numbers in numerical format to string representation in english,
-# allowed inputs Strings and Vector{String}
+"""
+    expand_numbers(input)
+    changing numbers in numerical format to string representation in english,
+    input: Strings and Vector{String}
+"""
+
 function expand_numbers(input)
     digit_to_word = Dict(
         "0" => "zero", "1" => "one", "2" => "two", "3" => "three", 

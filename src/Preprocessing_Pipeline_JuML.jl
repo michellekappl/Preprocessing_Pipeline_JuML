@@ -10,4 +10,6 @@ include("tokenization/tokenizer.jl")
 include("preprocessing/removeNoise.jl")
 
 include("vectorization/oneHotEncoding.jl")
+include("vectorization/bagOfWords.jl")
+
 end

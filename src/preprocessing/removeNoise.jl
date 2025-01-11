@@ -8,7 +8,7 @@ function remove_noise(pipe::NlpPipe)::NlpPipe
       r"#\w+",                                           # Hashtags
       r"\b\d{1,2}[/-]\d{1,2}[/-]\d{2,4}\b",              # Dates (MM/DD/YYYY or DD-MM-YY)
       r"\b\d{1,2}:\d{2}(?:AM|PM)?\b",                    # Times (e.g., 10:30 AM)
-      r"[^a-zA-Z0-9\s.,!?']",                            # Special characters
+      r"[^a-zA-Z0-9\s]",                                 # Special characters
    ]
 
    corpus = pipe.corpus

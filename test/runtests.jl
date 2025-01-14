@@ -52,6 +52,4 @@ test_corpus = [
         # Invalid tokenization level should throw an error
         @test_throws ArgumentError tokenize(NlpPipe(test_corpus), :invalid)
     end
-
-    # TODO Add more tests
 end

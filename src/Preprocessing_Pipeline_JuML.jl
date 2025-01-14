@@ -6,11 +6,31 @@ include("pipes/VectorizedNlpPipe.jl")
 
 include("tokenization/tokenizer.jl")
 
-include("preprocessing/removeNoise.jl")
-include("preprocessing/nrsToWordNr.jl")
-include("preprocessing/expandContractions.jl")
+include("preprocessing/beforeTokenization/removeNoise.jl")
+include("preprocessing/beforeTokenization/maskNumbers.jl")
+include("preprocessing/beforeTokenization/expandContractions.jl")
+include("preprocessing/beforeTokenization/standardizeText.jl")
+
+include("preprocessing/afterTokenization/removeStopWords.jl")
 
 include("vectorization/oneHotEncoding.jl")
 
-export NlpPipe, TokenizedNlpPipe, VectorizedNlpPipe, tokenize, remove_noise, one_hot_encoding
+export 
+   # Pipe Structs
+   NlpPipe, 
+   TokenizedNlpPipe, 
+   VectorizedNlpPipe, 
+
+   # Tokenization
+   tokenize, 
+
+   # Preprocessing
+   expand_contractions,
+   mask_numbers,
+   one_hot_encoding,
+   remove_noise,  
+   remove_stop_words, 
+   standardize_text
+
+   # Vectorization
 end

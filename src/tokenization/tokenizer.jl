@@ -10,7 +10,7 @@ end
 
 function tokenize(pipe::NlpPipe, level::Symbol = :word)::TokenizedNlpPipe
     tokenized_corpus = map(document -> tokenize_document(document, level), pipe.corpus)
-    return TokenizedNlpPipe(pipe.corpus, tokenized_corpus)
+    return TokenizedNlpPipe(pipe.corpus, tokenized_corpus, pipe.labels)
 end
 
 export tokenize

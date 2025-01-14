@@ -7,5 +7,5 @@
 """
 function mask_numbers(pipe::NlpPipe; replace_with::String="[NUM]")::NlpPipe
     corpus = map(document -> replace(document, r"\d+(?:\.\d+)?\b" => replace_with), pipe.corpus)
-    return NlpPipe(corpus)
+    return NlpPipe(corpus, pipe.labels)
 end

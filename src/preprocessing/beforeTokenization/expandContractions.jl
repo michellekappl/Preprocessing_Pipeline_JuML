@@ -241,5 +241,5 @@ Expand contractions in the input text. This function expands common English cont
 """
 function expand_contractions(pipe::NlpPipe)::NlpPipe
     corpus = map(expand_contractions_str, pipe.corpus)
-    return NlpPipe(corpus)
+    return NlpPipe(corpus, pipe.labels)
 end

@@ -29,5 +29,5 @@ function remove_noise(pipe::NlpPipe)::NlpPipe
       corpus = map(doc -> replace(doc, pattern => ""), corpus)
    end
 
-   return NlpPipe(corpus)
+   return NlpPipe(corpus, pipe.labels)
 end

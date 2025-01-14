@@ -22,5 +22,5 @@ Standardizes the text by converting it to lowercase and replacing unusual charac
 """
 function standardize_text(input::NlpPipe)::NlpPipe
    corpus = map(standardize_document, input.corpus)
-   return NlpPipe(corpus)
+   return NlpPipe(corpus, pipe.labels)
 end

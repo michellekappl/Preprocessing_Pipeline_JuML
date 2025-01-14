@@ -1,41 +1,32 @@
-function one_hot_encoding(pipe::TokenizedNlpPipe)
+function one_hot_encoding(pipe::TokenizedNlpPipe)::VectorizedNlpPipe
     """
     one_hot(x)
 
-    Create a one-hot-encoding out of give data and vocabulary
+    Create a one-hot-encoding out of given TokenizedNlpPipe
 
+    #Examples:
+    ```julia-repl
+    julia> pipe = TokenizedNlpPipe([["I", "love", "Julia"], ["Julia", "is", "awesome"]])
+    julia> one_hot(pipe)
+    VectorizedNlpPipe([[[1, 0, 0, 0, 0], [0, 1, 0, 0, 0], [0, 0, 1, 0, 0]], [[0, 0, 1, 0, 0], [0, 0, 0, 1, 0], [0, 0, 0, 0, 1]]], Dict("I" => 1, "love" => 2, "Julia" => 3, "is" => 4, "awesome" => 5))
+    ```
     """
 
     vocab_dict = get_vocab_dict(pipe.vocabulary)
     tokens = Vector{Vector{Vector{Int}}}()
     length_vocab = length(pipe.vocabulary)
 
-    for (i, sentence) in enumerate(pipe.tokens)
-        sentence_tokens = Vector{Vector{Int}}()
-        for word in sentence
+    for (i, doc) in enumerate(pipe.tokens)
+        doc_tokens = Vector{Vector{Int}}()
+        for word in doc
             word_vector = zeros(length_vocab)
             word_vector[vocab_dict[word]] = 1
-            push!(sentence_tokens, word_vector)
+            push!(doc_tokens, word_vector)
         end
-        push!(tokens, sentence_tokens)
+        push!(tokens, doc_tokens)
     end
 
     return VectorizedNlpPipe(tokens, vocab_dict)
-end
-
-function get_vocab_dict(vocab)
-    """
-    get_one_hot_for_vocab(vocab)
-
-    Create a Dict with idx in vector as values and words as keys
-
-    """
-
-    vocab_dict = Dict{String, Int}()
-    for (i, word) in enumerate(vocab)
-        vocab_dict[word] = i
-    end
-    return vocab_dict
 end
 
 export one_hot_encoding

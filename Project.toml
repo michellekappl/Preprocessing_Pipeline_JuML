@@ -8,6 +8,7 @@ Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 LiveServer = "16fef848-5104-11e9-1b77-fb7a48bbb589"
 Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
 StopWords = "35248bf2-58a5-46a0-9b1d-c0a73a50a107"
+StringEncodings = "69024149-9ee7-55f6-a4c4-859efe599b68"
 
 [compat]
 Revise = "3"

@@ -11,6 +11,8 @@ include("preprocessing/nrsToWordNr.jl")
 include("preprocessing/expandContractions.jl")
 
 include("vectorization/oneHotEncoding.jl")
+include("vectorization/bagOfWords.jl")
 
 export NlpPipe, TokenizedNlpPipe, VectorizedNlpPipe, tokenize, remove_noise, one_hot_encoding
+
 end

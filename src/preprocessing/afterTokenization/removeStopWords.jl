@@ -26,5 +26,5 @@ function remove_stop_words(pipe::TokenizedNlpPipe; language::String="en", stop_w
     stopwords_set = length(stop_words) > 0 ? stop_words : stopwords[language]
 
     tokens = map(document -> filter(token -> !(token in stopwords_set), document), pipe.tokens)
-    return TokenizedNlpPipe(pipe.corpus, tokens)
+    return TokenizedNlpPipe(pipe.corpus, tokens, pipe.labels)
 end

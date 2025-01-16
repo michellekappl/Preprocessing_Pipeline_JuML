@@ -7,7 +7,7 @@ Create a one-hot-encoding out of given TokenizedNlpPipe
     ```julia-repl
     julia> pipe = TokenizedNlpPipe([["I", "love", "Julia"], ["Julia", "is", "awesome"]])
     julia> one_hot(pipe)
-    VectorizedNlpPipe([[[1, 0, 0, 0, 0], [0, 1, 0, 0, 0], [0, 0, 1, 0, 0]], [[0, 0, 1, 0, 0], [0, 0, 0, 1, 0], [0, 0, 0, 0, 1]]], Dict("I" => 1, "love" => 2, "Julia" => 3, "is" => 4, "awesome" => 5))
+    VectorizedNlpPipe([[[1 0 0 0 0; 0 1 0 0 0; 0 0 1 0 0], [0 0 1 0 0; 0 0 0 1 0; 0 0 0 0 1]]], Dict("love" => 2, "Julia" => 3, "I" => 1, "is" => 4, "awesome" => 5))
     ```
     """
 function one_hot_encoding(pipe::TokenizedNlpPipe)::VectorizedNlpPipe

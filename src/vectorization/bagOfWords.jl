@@ -9,19 +9,18 @@ function bag_of_words(pipe::TokenizedNlpPipe)::VectorizedNlpPipe
     ```julia-repl
     julia> pipe = TokenizedNlpPipe([["I", "love", "Julia"], ["Julia", "is", "awesome"]])
     julia> bag_of_words(pipe)
-    VectorizedNlpPipe([[1, 1, 1, 0, 0], [0, 0, 1, 1, 1]], Dict("I" => 1, "love" => 2, "Julia" => 3, "is" => 4, "awesome" => 5))
+    VectorizedNlpPipe([[1 1 1 0 0], [0 0 1 1 1]], Dict("I" => 1, "love" => 2, "Julia" => 3, "is" => 4, "awesome" => 5))
     ```
     """
 
     vocab_dict = get_vocab_dict(pipe.vocabulary)
-    tokens = Vector{Vector{Int}}()
+    tokens = Vector{Matrix{Int}}()
     length_vocab = length(pipe.vocabulary)
 
-    for (i, doc) in enumerate(pipe.tokens)
-        doc_tokens = Vector{Int}()
-        doc_tokens = zeros(length_vocab)
+    for doc in pipe.tokens
+        doc_tokens = zeros(Int, 1, length_vocab)  # Create a matrix with 1 row and length_vocab columns
         for word in doc
-            doc_tokens[vocab_dict[word]] += 1
+            doc_tokens[1, vocab_dict[word]] += 1
         end
         push!(tokens, doc_tokens)
     end

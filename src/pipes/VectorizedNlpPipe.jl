@@ -1,5 +1,5 @@
 struct VectorizedNlpPipe
-   tokens::Vector{Vector{Vector{Int}}}
+      tokens::Vector{Matrix{Int}} 
    vocabulary::Dict{String, Int}
 end
 

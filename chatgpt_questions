@@ -96,3 +96,20 @@ This list includes the most commonly used contractions in English. Note that som
 Q: "is there a regex that can find word contractions like we collected above"
 A: "Yes, you can use a regex to match English word contractions like those collected above. To do so, the regex should be designed to handle patterns involving an apostrophe (') followed by specific suffixes or entire contracted words. 
     Here is a general regex that matches the common word contractions listed: \b(?:[a-zA-Z]+n't|[a-zA-Z]+'(?:ll|re|ve|d|s|m|t))\b"
+
+Q: how do i set optional keyword arguments in julia in the argument of a function?
+A: In Julia, you can define optional keyword arguments by including them after a semicolon (;) in the function signature. Keyword arguments can have default values, making them optional.
+
+Here’s the general syntax:
+
+function my_function(positional_arg1, positional_arg2; keyword_arg1=default_value1, keyword_arg2=default_value2)
+    # Function body
+    println("Positional Args: $positional_arg1, $positional_arg2")
+    println("Keyword Args: $keyword_arg1, $keyword_arg2")
+end
+
+Key Points:
+
+    Positional Arguments come before the semicolon (;).
+    Keyword Arguments are declared after the semicolon and are accessed using name=value when calling the function.
+    Keyword arguments can have default values, making them optional.

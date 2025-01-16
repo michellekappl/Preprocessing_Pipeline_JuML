@@ -113,3 +113,55 @@ Key Points:
     Positional Arguments come before the semicolon (;).
     Keyword Arguments are declared after the semicolon and are accessed using name=value when calling the function.
     Keyword arguments can have default values, making them optional.
+
+
+Q: "can you provide an example call for stemming  for a stemming algorithm in julia please?"
+A: "Certainly! Here's an example of how to use a stemming algorithm in Julia with the SnowballStemmer.jl package. I'll show you a typical call for stemming words using this package.
+Example: Using Snowball Stemmer for English Text
+
+    Install the SnowballStemmer Package (if you haven't done so already):
+
+using Pkg
+Pkg.add("SnowballStemmer")
+
+    Load the Package and Stem Words:
+
+using SnowballStemmer
+
+# Create an English stemmer
+stemmer = Stemmer("English")
+
+# Sample input
+words = ["running", "jumps", "happily", "cats"]
+
+# Apply stemming to each word in the vector
+stemmed_words = [stemmer(word) for word in words]
+
+# Display the stemmed words
+println(stemmed_words)  # Output: ["run", "jump", "happili", "cat"]
+
+Explanation:
+
+    Stemmer("English"): This creates an instance of the English language stemmer.
+    stemmer(word): Applies the stemming algorithm to a single word.
+    List comprehension [stemmer(word) for word in words]: This applies stemming to each word in the words vector.
+    Output: The result is a vector of stemmed words, e.g., ["run", "jump", "happili", "cat"].
+
+Example Output:
+
+["run", "jump", "happili", "cat"]
+
+    "running" becomes "run".
+    "jumps" becomes "jump".
+    "happily" becomes "happili" (stemming doesn't always give perfect results for all words).
+    "cats" becomes "cat".
+
+Summary:
+
+    Creating the stemmer: stemmer = Stemmer("English").
+    Stemming words: Use stemmer(word) for each word.
+    Vectorized application: Use list comprehension to stem multiple words.
+
+You can replace "English" with other languages supported by the SnowballStemmer package (like "German", "Spanish", etc.), depending on your needs.
+
+Let me know if you need more examples or adjustments! 😊"

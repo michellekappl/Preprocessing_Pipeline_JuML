@@ -22,6 +22,7 @@ Then, activate the package in Julia:
 using Pkg
 Pkg.activate(".") 
 Pkg.instantiate()
+using Preprocessing_Pipeline_JuML
 ```
 This will install the required dependencies and make the package available in your Julia REPL.
 

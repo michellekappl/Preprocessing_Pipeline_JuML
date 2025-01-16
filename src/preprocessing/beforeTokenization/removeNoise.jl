@@ -1,3 +1,14 @@
+"""
+   remove_noise(pipe::NlpPipe)
+
+Removes noise from the corpus. Noise includes HTML tags, URLs, email addresses, file paths, special characters, dates & times.
+
+# Arguments
+- pipe::NlpPipe: The `NlpPipe` object with a corpus to remove noise from
+
+# Returns
+- A new `NlpPipe` object with the noise removed from the corpus
+"""
 function remove_noise(pipe::NlpPipe)::NlpPipe
    patterns = [
       r"<[^>]*>",                                        # HTML tags (very basic, just remove everything between < and >) TODO: Improve this
@@ -18,7 +29,5 @@ function remove_noise(pipe::NlpPipe)::NlpPipe
       corpus = map(doc -> replace(doc, pattern => ""), corpus)
    end
 
-   return NlpPipe(corpus)
+   return NlpPipe(corpus, pipe.labels)
 end
-
-export remove_noise

@@ -1,18 +1,16 @@
-function bag_of_words(pipe::TokenizedNlpPipe)::VectorizedNlpPipe
-
-    """
+"""
     bag_of_words(x)
 
-    Create a bag-of-words-encoding out of given TokenizedNlpPipe
+Create a bag-of-words-encoding out of given TokenizedNlpPipe
 
-    #Examples:
-    ```julia-repl
-    julia> pipe = TokenizedNlpPipe([["I", "love", "Julia"], ["Julia", "is", "awesome"]])
-    julia> bag_of_words(pipe)
-    VectorizedNlpPipe([[1 1 1 0 0], [0 0 1 1 1]], Dict("I" => 1, "love" => 2, "Julia" => 3, "is" => 4, "awesome" => 5))
-    ```
-    """
-
+# Examples:
+```julia-repl
+julia> pipe = TokenizedNlpPipe([["I", "love", "Julia"], ["Julia", "is", "awesome"]])
+julia> bag_of_words(pipe)
+VectorizedNlpPipe([[1 1 1 0 0], [0 0 1 1 1]], Dict("I" => 1, "love" => 2, "Julia" => 3, "is" => 4, "awesome" => 5))
+```
+"""
+function bag_of_words(pipe::TokenizedNlpPipe)::VectorizedNlpPipe
     vocab_dict = get_vocab_dict(pipe.vocabulary)
     tokens = Vector{Matrix{Int}}()
     length_vocab = length(pipe.vocabulary)
@@ -25,7 +23,7 @@ function bag_of_words(pipe::TokenizedNlpPipe)::VectorizedNlpPipe
         push!(tokens, doc_tokens)
     end
 
-    return VectorizedNlpPipe(tokens, vocab_dict)
+    return VectorizedNlpPipe(tokens, vocab_dict, pipe.labels)
 end
 
 export bag_of_words

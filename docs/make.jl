@@ -8,7 +8,7 @@ makedocs(;
     authors="Michelle Kappl <michelle.kappl@gmail.com>, Leon Schreiber <leonschreiber96@gmail.com>, Marike Voßbeck <Marike_vossbeck@posteo.de>",
     sitename="Preprocessing_Pipeline_JuML.jl",
     format=Documenter.HTML(;
-        canonical="https://leonschreiber96.github.io/Preprocessing_Pipeline_JuML.jl",
+        canonical="https://michellekappl.github.io/Preprocessing_Pipeline_JuML.jl",
         edit_link="main",
         assets=String[],
     ),
@@ -19,6 +19,6 @@ makedocs(;
 )
 
 deploydocs(;
-    repo="github.com/leonschreiber96/Preprocessing_Pipeline_JuML.jl",
+    repo="github.com/michellekappl/Preprocessing_Pipeline_JuML.jl",
     devbranch="main",
 )

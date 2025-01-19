@@ -1,3 +1,5 @@
+include("vocabDict.jl")
+
 """
     one_hot_encoding(x)
 

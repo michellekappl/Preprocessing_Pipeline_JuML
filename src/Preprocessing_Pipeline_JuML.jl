@@ -15,6 +15,7 @@ include("preprocessing/afterTokenization/removeStopWords.jl")
 
 include("vectorization/oneHotEncoding.jl")
 include("vectorization/bagOfWords.jl")
+include("vectorization/bagOfNGrams.jl")
 
 export 
    # Pipe Structs
@@ -34,4 +35,7 @@ export
    standardize_text
 
    # Vectorization
+    bag_of_ngrams,
+    bag_of_words
+    one_hot_encoding
 end

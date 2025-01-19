@@ -50,7 +50,7 @@ pipe = NlpPipe(corpus) |> remove_noise |> tokenize |> one_hot_encoding
 
 **`VectorizedNlpPipe`** Struct that holds vectorized text data (embeddings). Can be used for machine learning tasks.
 
-![Pipeline Diagram](docs/images/pipeline_diagram.png)
+![Pipeline Diagram](../images/pipeline_diagram.png)
 
 ## Quickstart
 **Load the package:**

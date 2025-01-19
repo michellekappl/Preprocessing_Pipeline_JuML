@@ -10,4 +10,6 @@ using Test
     include("preprocessing/beforeTokenization/maskNumbersTests.jl")
     include("preprocessing/beforeTokenization/removeNoiseTests.jl")
     include("preprocessing/beforeTokenization/standardizeTextTests.jl")
+
+    include("vectorization/bagOfNGramsTests.jl")
 end

@@ -11,5 +11,7 @@ using Test
     include("preprocessing/beforeTokenization/removeNoiseTests.jl")
     include("preprocessing/beforeTokenization/standardizeTextTests.jl")
 
+    include("vectorization/oneHotEncodingTests.jl")
+    include("vectorization/bagOfWordsTests.jl")
     include("vectorization/bagOfNGramsTests.jl")
 end

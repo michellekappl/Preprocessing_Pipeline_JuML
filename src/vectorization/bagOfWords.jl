@@ -1,3 +1,5 @@
+include("vocabDict.jl")
+
 """
     bag_of_words(x)
 
@@ -10,6 +12,7 @@ julia> bag_of_words(pipe)
 VectorizedNlpPipe([[1 1 1 0 0], [0 0 1 1 1]], Dict("I" => 1, "love" => 2, "Julia" => 3, "is" => 4, "awesome" => 5))
 ```
 """
+
 function bag_of_words(pipe::TokenizedNlpPipe)::VectorizedNlpPipe
     vocab_dict = get_vocab_dict(pipe.vocabulary)
     tokens = Vector{Matrix{Int}}()

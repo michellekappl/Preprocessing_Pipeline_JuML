@@ -1,19 +1,18 @@
 """
-    bag_of_ngrams(pipe, n)
+    bag_of_ngrams(x, n)
 
 Create a bag of n-grams out of given TokenizedNlpPipe, with padding for shorter documents.
 
 # Examples:
-julia> pipe = TokenizedNlpPipe([["one", "sentence", "sample"],["two", "sentence", "sample"]], nothing)
-julia> bag_of_ngrams(pipe, 2)
-VectorizedNlpPipe([[1 0 0 ; 0 1 0], [0 1 0 ; 0 0 1]], Dict("two sentence" => 2, "sentence sample" => 3, "one sentence" => 1), nothing)
+    julia> pipe = TokenizedNlpPipe([["one", "sentence", "sample"],["two", "sentence", "sample"]], nothing)
+    julia> bag_of_ngrams(pipe, 2)
+    VectorizedNlpPipe([[1 0 0 ; 0 1 0], [0 1 0 ; 0 0 1]], Dict("two sentence" => 2, "sentence sample" => 3, "one sentence" => 1), nothing)
 
-julia> pipe = TokenizedNlpPipe([["one", "sentence", "sample"],["two", "sentence", "sample"]], nothing)
-julia> bag_of_ngrams(pipe, 4)
-VectorizedNlpPipe([[1 0 ; 0 1]], Dict("two sentence sample <PAD>" => 2, "one sentence sample <PAD>" => 1), nothing)
+    julia> pipe = TokenizedNlpPipe([["one", "sentence", "sample"],["two", "sentence", "sample"]], nothing)
+    julia> bag_of_ngrams(pipe, 4)
+    VectorizedNlpPipe([[1 0 ; 0 1]], Dict("two sentence sample <PAD>" => 2, "one sentence sample <PAD>" => 1), nothing)
 
 """
-
 function bag_of_ngrams(pipe::TokenizedNlpPipe, n::Int)::VectorizedNlpPipe
     ngram_vocab = create_n_gram_dict(pipe, n)
     data_vector = Vector{Matrix{Int}}()

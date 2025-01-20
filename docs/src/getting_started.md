@@ -79,7 +79,3 @@ Testing:                    |   52     52  0.6s
   BagOfNGrams Tests         |    8      8  0.1s
      Testing Preprocessing_Pipeline_JuML tests passed
 ```
-
-# **Feedback**
-
-If you encounter any issues or have feature requests, please open an issue in the repository. We appreciate your feedback!

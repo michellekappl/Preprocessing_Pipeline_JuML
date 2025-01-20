@@ -1,0 +1,81 @@
+# Installation in REPL
+Clone the repository and include the package in your Julia environment:
+
+```bash
+git clone git@github.com:michellekappl/Preprocessing_Pipeline_JuML.git
+cd path/to/dir/Preprocessing_Pipeline_JuML
+```
+
+Then, activate the package in Julia:
+
+```julia
+using Pkg
+Pkg.activate(".") 
+Pkg.instantiate()
+using Preprocessing_Pipeline_JuML
+```
+This will install the required dependencies and make the package available in your Julia REPL.
+
+# Quickstart
+**1. Load the package:**
+```julia
+using Preprocessing_Pipeline_JuML
+```
+
+**2. Prepare a test corpus:**
+Define a set of noisy text samples for preprocessing:
+```julia
+test_corpus = [
+   "Hello <b>world</b>! Visit http://example.com.",
+   "Email me: test@example.com or call +123-456-7890.",
+   "Today is 12/25/2024, time now: 10:30AM.",
+   "My file is at C:\\Users\\JohnDoe\\Documents\\file.txt.",
+   "Check this out: www.awesome-website.org/about-us.html!",
+   "#JuliaLang is great. Follow us @JuliaNLP."
+]
+```
+
+**3. Build your pipeline:**
+
+```julia
+pipe = NlpPipe(test_corpus) |> remove_noise |> tokenize |> one_hot_encoding
+```
+
+**4. Inspect the pipeline outputs:**
+
+Get the tokenized representation:
+
+```julia
+@info pipe.tokens # contains documents split into single tokens
+```
+
+**5. View the vectors and vocabulary generated during vectorization:**
+
+```julia
+@info pipe.tokens # contains the tokens from before, but as numeric vectors
+@info pipe.vocabulary
+```
+
+<!-- ## **License**
+
+This project is licensed under the MIT License. See the `LICENSE` file for details. -->
+
+# Run the tests
+To run the tests, open a Julia REPL, activate the project, and use the `]` key to enter the package management console. Then, execute `test` to run the test suite.
+The output should look like this:
+
+```julia repl
+(@v1.6) pkg> test
+Testing:                    |   52     52  0.6s
+  NlpPipe Tests             |   10     10  0.1s
+  TokenizedNlpPipe Tests    |    8      8  0.1s
+  Remove Stop Words Tests   |    3      3  0.1s
+  Expand Contractions Tests |    3      3  0.1s
+  Mask Numbers Tests        |    6      6  0.0s
+  Remove Noise Tests        |    6      6  0.0s
+  Standardize Text Tests    |    2      2  0.0s
+  OneHotEncoding Tests      |    2      2  0.1s
+  Bag of Words Tests        |    4      4  0.0s
+  BagOfNGrams Tests         |    8      8  0.1s
+     Testing Preprocessing_Pipeline_JuML tests passed
+```

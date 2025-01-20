@@ -15,7 +15,7 @@ end
 
 """
    standardize_text(input::NlpPipe)
-   
+
 Standardizes the text by converting it to lowercase and replacing unusual characters with their standard counterparts.
 """
 function standardize_text(pipe::NlpPipe)::NlpPipe

@@ -6,7 +6,7 @@ DocMeta.setdocmeta!(Preprocessing_Pipeline_JuML, :DocTestSetup, :(using Preproce
 makedocs(;
     modules=[Preprocessing_Pipeline_JuML],
     authors="Michelle Kappl <michelle.kappl@gmail.com>, Leon Schreiber <leonschreiber96@gmail.com>, Marike Voßbeck <Marike_vossbeck@posteo.de>",
-    sitename="Preprocessing_Pipeline_JuML",
+    sitename="Preprocessing_Pipeline_JuML.jl",
     format=Documenter.HTML(;
         canonical="https://michellekappl.github.io/Preprocessing_Pipeline_JuML",
         edit_link="main",

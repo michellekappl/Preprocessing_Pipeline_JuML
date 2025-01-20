@@ -5,11 +5,11 @@
       "The year is 2024."
    ]
 
-   # test without a custom replace value → should be [NUM]
+   # test without a custom replace value → should be <NUM>
    pipe = NlpPipe(corpus) |> mask_numbers
-   @test pipe.corpus[1] == "I have [NUM] apples and [NUM] oranges."
-   @test pipe.corpus[2] == "The price is \$[NUM]. Where does the [NUM]/[NUM] € come from?"
-   @test pipe.corpus[3] == "The year is [NUM]."
+   @test pipe.corpus[1] == "I have <NUM> apples and <NUM> oranges."
+   @test pipe.corpus[2] == "The price is \$<NUM>. Where does the <NUM>/<NUM> € come from?"
+   @test pipe.corpus[3] == "The year is <NUM>."
 
    # test with a custom replace value
    pipe = NlpPipe(corpus) |> pipe -> mask_numbers(pipe; replace_with="NUMBER")

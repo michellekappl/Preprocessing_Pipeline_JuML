@@ -46,6 +46,7 @@ Compute the term frequency (TF) matrix for a given document.
 - `Matrix{Float64}`: The term frequency matrix for the document.
 
 """
+
 function tf(doc_i::Int, doc::Vector{String}, vocab_dict::Dict{String, NamedTuple{(:index, :doc_dict)}}, weighting::String)::Matrix{Float64}
     doc_matrix = zeros(Float64, length(doc), length(vocab_dict))
     for (word_i,word) in enumerate(doc)
@@ -73,6 +74,7 @@ Compute the inverse document frequency (IDF) matrix for a given document.
 - `Matrix{Float64}`: The inverse document frequency matrix for the document.
 
 """
+
 function idf(doc::Vector{String}, vocab_dict::Dict{String, NamedTuple{(:index, :doc_dict)}}, total_docs::Int, weighting::String)::Matrix{Float64}
     doc_matrix = zeros(Float64, length(doc), length(vocab_dict))
     for (word_i,word) in enumerate(doc)
@@ -98,6 +100,7 @@ Generate the vocabulary dictionary with term indices and document frequency info
 - `Dict{String, NamedTuple{(:index, :doc_dict)}}`: The vocabulary dictionary with term indices and document frequency information.
 
 """
+
 function tf_idf_vocab(pipe::TokenizedNlpPipe)::Dict{String, NamedTuple{(:index, :doc_dict)}}
     vocab_dict = Dict{String, NamedTuple{(:index, :doc_dict)}}()
     idx = 1

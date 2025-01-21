@@ -5,8 +5,8 @@ include("vocabDict.jl")
 
 Create a one-hot-encoding out of given TokenizedNlpPipe
 
-#Examples:
-    ```julia-repl
+# Examples:
+    ```
     julia> pipe = TokenizedNlpPipe([["I", "love", "Julia"], ["Julia", "is", "awesome"]])
     julia> one_hot(pipe)
     VectorizedNlpPipe([[[1 0 0 0 0; 0 1 0 0 0; 0 0 1 0 0], [0 0 1 0 0; 0 0 0 1 0; 0 0 0 0 1]]], Dict("love" => 2, "Julia" => 3, "I" => 1, "is" => 4, "awesome" => 5))

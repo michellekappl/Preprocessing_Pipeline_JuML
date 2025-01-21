@@ -14,9 +14,15 @@ function standardize_document(doc::String)::String
 end
 
 """
-   standardize_text(input::NlpPipe)
+   standardize_document(doc::String)::String
 
-Standardizes the text by converting it to lowercase and replacing unusual characters with their standard counterparts.
+Standardizes a document by converting it to lowercase and replacing unusual characters with their standard counterparts.
+
+# Arguments
+- `doc::String`: The input document as a string.
+
+# Returns
+- `String`: The standardized document as a string.
 """
 function standardize_text(pipe::NlpPipe)::NlpPipe
    corpus = map(standardize_document, pipe.corpus)

@@ -16,6 +16,7 @@ makedocs(;
         "Home" => "index.md",
         "Getting Started" => "getting_started.md" 
     ],
+    doctest = :fix  # Automatically updates expected outputs
 )
 
 deploydocs(;

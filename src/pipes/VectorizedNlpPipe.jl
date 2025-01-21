@@ -11,18 +11,18 @@ A structure for handling vectorized representations of tokenized text data, incl
 # Example Usage
 ---
 ## Creating a pipe from an existing TokenizedNlpPipe instance (usual way to do it)
-```jldoctest repl
+```julia
 julia> corpus = ["Hello world", "Julia is great"]
 2-element Vector{String}:
  "Hello world"
  "Julia is great"
 
-julia> tokenizedPipe = NlpPipe(corpus) |> tokenize |> one_hot_encoding # (or any other vectorization method)
+julia> NlpPipe(corpus) |> tokenize |> one_hot_encoding # (or any other vectorization method)
 VectorizedNlpPipe(Matrix{<:Union{Float64, Int64}}[[0 1 … 0 0; 0 0 … 0 1], [0 0 … 1 0; 0 0 … 0 0; 1 0 … 0 0]], Dict("great" => 1, "Hello" => 2, "is" => 3, "Julia" => 4, "world" => 5), nothing)
 ````
 ---
 ## Creating a pipe from scratch
-```jldoctest repl
+```julia
 julia> tokens = [[1 2; 3 4], [5 6; 7 8]]  # Example word embeddings (each document is a matrix)
 2-element Vector{Matrix{Int64}}:
  [1 2; 3 4]
@@ -39,7 +39,7 @@ julia> labels = ["greeting", "statement"]
  "greeting"
  "statement"
 
-julia> pipe = VectorizedNlpPipe(tokens, vocab, labels)
+julia> VectorizedNlpPipe(tokens, vocab, labels)
 VectorizedNlpPipe(Matrix{<:Union{Float64, Int64}}[[1 2; 3 4], [5 6; 7 8]], Dict("hello" => 1, "Julia" => 3, "world" => 2), ["greeting", "statement"])
 ```
 ---

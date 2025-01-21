@@ -1,10 +1,10 @@
-@testset "Expand Contractions Tests" begin
-   corpus = [
-      "You can't do that",
-      "I wouldn't've done that",
-      "You'dn't've done that either if you were me, but you're not",
-   ]
+corpus = [
+   "You can't do that",
+   "I wouldn't've done that",
+   "You'dn't've done that either if you were me, but you're not",
+]
 
+@testset "Expand Contractions Tests" begin
    pipe = NlpPipe(corpus) |> standardize_text |> expand_contractions
 
    @test pipe.corpus[1] == "you cannot do that"

@@ -12,10 +12,10 @@ Replaces all numbers in the text of the given `NlpPipe` corpus with a specified 
 
 # Example
 ```julia
-    pipe = NlpPipe(["The price is $1000."])
+    pipe = NlpPipe(["The price is 1000€."])
     number_to_word(pipe) 
     
-    NlpPipe(["The price is $<NUM>."])
+    NlpPipe(["The price is <NUM>€."])
 """
 function mask_numbers(pipe::NlpPipe; replace_with::String="<NUM>")::NlpPipe
     corpus = map(document -> replace(document, r"\d+(?:\.\d+)?\b" => replace_with), pipe.corpus)

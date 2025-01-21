@@ -45,7 +45,6 @@ julia> create_n_gram_dict(pipe, 2)
 Dict("two sentence" => 2, "sentence sample" => 3, "one sentence" => 1)
 ```
 """
-
 function create_n_gram_dict(pipe::TokenizedNlpPipe, n::Int)::Dict{String, Int}
     ngram_vocab = Dict{String, Int}()
     idx = 1

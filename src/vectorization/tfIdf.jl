@@ -1,17 +1,17 @@
 """
-    tf_idf_vectorizer(pipe::TokenizedNlpPipe, tf_weighting::String = "relative term frequency", idf_weighting::String="inverse document frequency")::VectorizedNlpPipe
+    tf_idf(pipe::TokenizedNlpPipe; tf_weighting::String = "relative term frequency", idf_weighting::String="inverse document frequency")::VectorizedNlpPipe
 
-    This function computes the TF-IDF (Term Frequency-Inverse Document Frequency) vectorization for a given tokenized NLP pipeline.
+Compute the TF-IDF (Term Frequency-Inverse Document Frequency) representation of the tokenized documents in the given `pipe`.
 
-    Parameters:
-function tfidf_vectorizer(pipe::TokenizedNlpPipe, tf_weighting::String = "relative term frequency", idf_weighting::String="inverse document frequency")::VectorizedNlpPipe
-    vocab_dict = tfidf_vocab(pipe)
-    - idf_weighting: String, the inverse document frequency weighting scheme to use ("inverse document frequency" or "smooth inverse document frequency").
+# Arguments
+- `pipe::TokenizedNlpPipe`: A pipeline containing tokenized documents.
+- `tf_weighting::String`: The term frequency weighting scheme. Options are "relative term frequency" (default) and "raw term frequency".
+- `idf_weighting::String`: The inverse document frequency weighting scheme. Options are "inverse document frequency" (default) and "smooth inverse document frequency".
 
-    Returns:
-    - VectorizedNlpPipe: The vectorized NLP pipeline with TF-IDF values.
+# Returns
+- `VectorizedNlpPipe`: A new pipeline containing the TF-IDF vectorized representation of the documents.
+
 """
-
 function tf_idf(pipe::TokenizedNlpPipe; tf_weighting::String = "relative term frequency", idf_weighting::String="inverse document frequency")::VectorizedNlpPipe
     vocab_dict = tf_idf_vocab(pipe)
     data_vector = Vector{Matrix{Float64}}()
@@ -30,6 +30,22 @@ function tf_idf(pipe::TokenizedNlpPipe; tf_weighting::String = "relative term fr
     return VectorizedNlpPipe(data_vector, new_vocab_dict, pipe.labels)
 end
 
+
+"""
+    tf(doc_i::Int, doc::Vector{String}, vocab_dict::Dict{String, NamedTuple{(:index, :doc_dict)}}, weighting::String)::Matrix{Float64}
+
+Compute the term frequency (TF) matrix for a given document.
+
+# Arguments
+- `doc_i::Int`: The index of the document in the corpus.
+- `doc::Vector{String}`: The tokenized document.
+- `vocab_dict::Dict{String, NamedTuple{(:index, :doc_dict)}}`: The vocabulary dictionary with term indices and document frequency information.
+- `weighting::String`: The term frequency weighting scheme. Options are "relative term frequency" and "raw term frequency".
+
+# Returns
+- `Matrix{Float64}`: The term frequency matrix for the document.
+
+"""
 function tf(doc_i::Int, doc::Vector{String}, vocab_dict::Dict{String, NamedTuple{(:index, :doc_dict)}}, weighting::String)::Matrix{Float64}
     doc_matrix = zeros(Float64, length(doc), length(vocab_dict))
     for (word_i,word) in enumerate(doc)
@@ -42,6 +58,21 @@ function tf(doc_i::Int, doc::Vector{String}, vocab_dict::Dict{String, NamedTuple
     return doc_matrix
 end
 
+"""
+    idf(doc::Vector{String}, vocab_dict::Dict{String, NamedTuple{(:index, :doc_dict)}}, total_docs::Int, weighting::String)::Matrix{Float64}
+
+Compute the inverse document frequency (IDF) matrix for a given document.
+
+# Arguments
+- `doc::Vector{String}`: The tokenized document.
+- `vocab_dict::Dict{String, NamedTuple{(:index, :doc_dict)}}`: The vocabulary dictionary with term indices and document frequency information.
+- `total_docs::Int`: The total number of documents in the corpus.
+- `weighting::String`: The inverse document frequency weighting scheme. Options are "inverse document frequency" and "smooth inverse document frequency".
+
+# Returns
+- `Matrix{Float64}`: The inverse document frequency matrix for the document.
+
+"""
 function idf(doc::Vector{String}, vocab_dict::Dict{String, NamedTuple{(:index, :doc_dict)}}, total_docs::Int, weighting::String)::Matrix{Float64}
     doc_matrix = zeros(Float64, length(doc), length(vocab_dict))
     for (word_i,word) in enumerate(doc)
@@ -54,6 +85,19 @@ function idf(doc::Vector{String}, vocab_dict::Dict{String, NamedTuple{(:index, :
     return doc_matrix
 end
 
+
+"""
+    tf_idf_vocab(pipe::TokenizedNlpPipe)::Dict{String, NamedTuple{(:index, :doc_dict)}}
+
+Generate the vocabulary dictionary with term indices and document frequency information from the tokenized documents in the given `pipe`.
+
+# Arguments
+- `pipe::TokenizedNlpPipe`: A pipeline containing tokenized documents.
+
+# Returns
+- `Dict{String, NamedTuple{(:index, :doc_dict)}}`: The vocabulary dictionary with term indices and document frequency information.
+
+"""
 function tf_idf_vocab(pipe::TokenizedNlpPipe)::Dict{String, NamedTuple{(:index, :doc_dict)}}
     vocab_dict = Dict{String, NamedTuple{(:index, :doc_dict)}}()
     idx = 1

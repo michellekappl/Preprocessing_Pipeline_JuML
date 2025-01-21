@@ -10,7 +10,7 @@
 
 function expand_contractions(input)
     contractions_dict = Dict(
-       "won't"=> "will not","n't"=>" not", "'s"=> " is",  "'ll"=> " will", "'ve"=> " have", "'d"=> " had", "'m" => " am", "'re" => " are" 
+       "won't"=> "will not","n't"=>" not", "'s"=> " is",  "'ll"=> " will", "'ve"=> " have", "'d"=> " had", "'m" => " am", "'re" => " are", "'em" => " them"  
     )
     if typeof(input)==String
 

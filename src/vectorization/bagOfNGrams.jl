@@ -1,5 +1,5 @@
 """
-    bag_of_ngrams(x, n)
+    bag_of_ngrams(pipe; n)
 
 Create a bag of n-grams out of given TokenizedNlpPipe, with padding for shorter documents.
 
@@ -13,7 +13,7 @@ Create a bag of n-grams out of given TokenizedNlpPipe, with padding for shorter 
     VectorizedNlpPipe([[1 0 ; 0 1]], Dict("two sentence sample <PAD>" => 2, "one sentence sample <PAD>" => 1), nothing)
 
 """
-function bag_of_ngrams(pipe::TokenizedNlpPipe, n::Int)::VectorizedNlpPipe
+function bag_of_ngrams(pipe::TokenizedNlpPipe; n::Int)::VectorizedNlpPipe
     ngram_vocab = create_n_gram_dict(pipe, n)
     data_vector = Vector{Matrix{Int}}()
     length_vocab = length(ngram_vocab)

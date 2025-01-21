@@ -22,6 +22,10 @@ CurrentModule = Preprocessing_Pipeline_JuML
     - stemming
 - **Tokenization:** Split text into words or characters.
 - **Vectorization:** Transform text into machine-learning-compatible vector representations
+  - one-hot encoding
+  - Bag of Words (BoW)
+  - Bag of N-Grams
+  - Term Frequency-Inverse Document Frequency (TF-IDF)
 
 ## API Structure
 The package provides a set of pipeline stages that can be chained together to preprocess text data. The pipeline stages are implemented as functions that take a `NlpPipe` or `TokenizedNlpPipe` struct as input and return a modified object of the same type. This makes it easy to build custom preprocessing pipelines by piping together the desired stages.

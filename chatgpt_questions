@@ -96,3 +96,48 @@ This list includes the most commonly used contractions in English. Note that som
 Q: "is there a regex that can find word contractions like we collected above"
 A: "Yes, you can use a regex to match English word contractions like those collected above. To do so, the regex should be designed to handle patterns involving an apostrophe (') followed by specific suffixes or entire contracted words. 
     Here is a general regex that matches the common word contractions listed: \b(?:[a-zA-Z]+n't|[a-zA-Z]+'(?:ll|re|ve|d|s|m|t))\b"
+
+Q: what do i call the tag if i replace a number with <NUM> in nl
+A: The process of replacing numbers with <NUM> in natural language (NL) processing is typically referred to as "number masking" or "number normalization". The tag <NUM> itself is often called a placeholder tag, masking token, or entity tag.
+Common terminology:
+Number masking: The act of replacing numbers in text with a generic placeholder (e.g., <NUM>).
+Placeholder tag: Refers to the specific token used, such as <NUM>, <NUMBER>, or any other chosen label.
+Normalization: A broader term encompassing various methods of transforming text into a standardized form, including masking numbers.
+Would you like help implementing this in a specific scenario?
+Q: what other masks exist except for <NUM>
+A: In Natural Language Processing (NLP), masking involves replacing specific types of tokens with placeholders to generalize or anonymize the text. Apart from <NUM>, here are other common masks:
+Entity Masks
+<DATE>: For dates and times (e.g., "January 1, 2025" → <DATE>).
+<TIME>: For time expressions (e.g., "3:30 PM" → <TIME>).
+<URL>: For URLs or web links (e.g., "https://example.com" → <URL>).
+<EMAIL>: For email addresses (e.g., "user@example.com" → <EMAIL>).
+<PHONE>: For phone numbers (e.g., "(123) 456-7890" → <PHONE>).
+<CURRENCY>: For monetary values (e.g., "$10.50" → <CURRENCY>).
+<NAME>: For proper names (e.g., "John Smith" → <NAME>).
+<LOCATION>: For geographic locations (e.g., "New York City" → <LOCATION>).
+<ORGANIZATION>: For organizations or companies (e.g., "Google" → <ORGANIZATION>).
+<PRODUCT>: For product names (e.g., "iPhone 14" → <PRODUCT>).
+Content-Specific Masks
+<HASHTAG>: For hashtags in social media (e.g., "#LoveCoding" → <HASHTAG>).
+<MENTION>: For social media mentions (e.g., "@user123" → <MENTION>).
+<TOKEN>: For general tokens that don't fit into other categories.
+<SENSITIVE>: For sensitive information like ID numbers, passwords, or personal data.
+<PLATE>: For license plates or other standardized codes.
+<FILE>: For file paths or filenames (e.g., "/path/to/file.txt" → <FILE>).
+Custom Masks
+Depending on the application, you can create custom masks for domain-specific data:
+<DISEASE>: For medical terms (e.g., "diabetes" → <DISEASE>).
+<SYMPTOM>: For symptoms in clinical text (e.g., "fever" → <SYMPTOM>).
+<CHEMICAL>: For chemical names (e.g., "H2SO4" → <CHEMICAL>).
+<TAG>: For labels in annotated datasets (e.g., <POSITIVE> for sentiment analysis).
+Miscellaneous
+<MASK>: A general mask for masked language models like BERT.
+<UNKNOWN> or <UNK>: For unknown or out-of-vocabulary tokens.
+<DIGIT>: If distinguishing single digits from other numbers is important.
+<AGE>: For age values (e.g., "25 years old" → <AGE>).
+Application-Specific Examples
+For legal, medical, or technical fields, masks can be tailored. For example:
+In legal documents: <CASE_NUMBER>, <LAW_SECTION>.
+In medical records: <PATIENT_ID>, <DIAGNOSIS>.
+In technical logs: <IP_ADDRESS>, <ERROR_CODE>.
+Would you like guidance on implementing a specific set of masks for your use case?

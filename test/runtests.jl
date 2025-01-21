@@ -14,4 +14,5 @@ using Test
     include("vectorization/oneHotEncodingTests.jl")
     include("vectorization/bagOfWordsTests.jl")
     include("vectorization/bagOfNGramsTests.jl")
+    include("vectorization/tfIdfTests.jl")
 end

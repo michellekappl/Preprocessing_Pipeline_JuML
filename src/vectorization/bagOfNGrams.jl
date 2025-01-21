@@ -39,9 +39,11 @@ export bag_of_ngrams
 Create a dictionary of ngrams out of given TokenizedNlpPipe.
 
 # Examples:
+```
 julia> pipe = TokenizedNlpPipe([["one", "sentence", "sample"],["two", "sentence", "sample"]])
 julia> create_n_gram_dict(pipe, 2)
 Dict("two sentence" => 2, "sentence sample" => 3, "one sentence" => 1)
+```
 """
 function create_n_gram_dict(pipe::TokenizedNlpPipe, n::Int)::Dict{String, Int}
     ngram_vocab = Dict{String, Int}()

@@ -41,14 +41,17 @@ julia> tokens = [["Hello", "world"], ["Julia", "is", "great"]]
  ["Hello", "world"]
  ["Julia", "is", "great"]
  
-julia> pipe1 = TokenizedNlpPipe(corpus, tokens, ["greeting", "statement"])
+julia> TokenizedNlpPipe(corpus, tokens, ["greeting", "statement"])
 TokenizedNlpPipe(["Hello world", "Julia is great"], [["Hello", "world"], ["Julia", "is", "great"]], Set(["great", "Hello", "is", "Julia", "world"]), ["greeting", "statement"])
 ````
 ---
 ## Creating a new pipe from an existing one with modified tokens
 ```jldoctest repl
-julia> pipe2 = TokenizedNlpPipe(pipe1, tokens=[["Hello"], ["Julia", "great"]])
-TokenizedNlpPipe(["Hello world", "Julia is great"], [["Hello"], ["Julia", "great"]], Set(["great", "Hello", "is", "Julia", "world"]), ["greeting", "statement"])
+julia> pipe1 = TokenizedNlpPipe(corpus, tokens, ["greeting", "statement"])
+TokenizedNlpPipe(["Hello world", "Julia is great"], [["Hello", "world"], ["Julia", "is", "great"]], Set(["great", "Hello", "is", "Julia", "world"]), ["greeting", "statement"])
+
+julia> pipe2 = TokenizedNlpPipe(pipe1; tokens=[["Hello"], ["Julia", "is"]])
+TokenizedNlpPipe(["Hello world", "Julia is great"], [["Hello"], ["Julia", "is"]], Set(["great", "Hello", "is", "Julia", "world"]), ["greeting", "statement"])
 ```
 ---
 """

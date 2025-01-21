@@ -1,5 +1,5 @@
 """
-   remove_noise(pipe::NlpPipe)
+    remove_noise(pipe::NlpPipe)
 
 Removes noise from the corpus. Noise includes HTML tags, URLs, email addresses, file paths, special characters, dates & times.
 

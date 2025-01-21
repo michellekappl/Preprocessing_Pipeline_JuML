@@ -6,13 +6,12 @@ include("vocabDict.jl")
 Create a bag-of-words-encoding out of given TokenizedNlpPipe
 
 # Examples:
-```julia-repl
-julia> pipe = TokenizedNlpPipe([["I", "love", "Julia"], ["Julia", "is", "awesome"]])
-julia> bag_of_words(pipe)
-VectorizedNlpPipe([[1 1 1 0 0], [0 0 1 1 1]], Dict("I" => 1, "love" => 2, "Julia" => 3, "is" => 4, "awesome" => 5))
-```
+    ```
+    julia> pipe = TokenizedNlpPipe([["I", "love", "Julia"], ["Julia", "is", "awesome"]])
+    julia> bag_of_words(pipe)
+    VectorizedNlpPipe([[1 1 1 0 0], [0 0 1 1 1]], Dict("I" => 1, "love" => 2, "Julia" => 3, "is" => 4, "awesome" => 5))
+    ```
 """
-
 function bag_of_words(pipe::TokenizedNlpPipe)::VectorizedNlpPipe
     vocab_dict = get_vocab_dict(pipe.vocabulary)
     tokens = Vector{Matrix{Int}}()

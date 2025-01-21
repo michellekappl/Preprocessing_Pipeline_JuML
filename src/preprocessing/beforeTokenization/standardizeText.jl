@@ -25,7 +25,7 @@ end
 
 
 """
-    standardize_text(pipe::NlpPipe)::NlpPipe
+   standardize_text(pipe::NlpPipe)::NlpPipe
 
 Applies the `standardize_document` function to each document in the corpus of the given `NlpPipe` object.
 

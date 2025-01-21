@@ -19,7 +19,7 @@ julia> corpus = ["Hello world", "Julia is great"]
 
 julia> NlpPipe(corpus) |> tokenize |> one_hot_encoding # (or any other vectorization method)
 VectorizedNlpPipe(Matrix{<:Union{Float64, Int64}}[[0 1 … 0 0; 0 0 … 0 1], [0 0 … 1 0; 0 0 … 0 0; 1 0 … 0 0]], Dict("great" => 1, "Hello" => 2, "is" => 3, "Julia" => 4, "world" => 5), nothing)
-````
+```
 ---
 ## Creating a pipe from scratch
 ```julia

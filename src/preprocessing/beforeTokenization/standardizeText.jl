@@ -1,5 +1,6 @@
 using StringEncodings
 """
+
     standardize_document(doc::String)::String
 
 Standardizes a document by converting it to lowercase and replacing unusual characters with their standard counterparts.
@@ -25,7 +26,7 @@ end
 
 
 """
-   standardize_text(pipe::NlpPipe) -> NlpPipe
+    standardize_text(pipe::NlpPipe) -> NlpPipe
 
 Applies the `standardize_document` function to each document in the corpus of the given `NlpPipe` object.
 

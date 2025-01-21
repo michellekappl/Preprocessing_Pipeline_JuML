@@ -1,7 +1,7 @@
 using StopWords
 
 """
-    remove_stop_words(pipe::TokenizedNlpPipe; language::String="en", stop_words::Set{String}=Set{String}())
+    remove_stop_words(pipe::TokenizedNlpPipe; language::String="en", stop_words::Set{String}=Set{String}()) -> TokenizedNlpPipe
 
 Removes predefined stopwords. You can access the stop words for a given language using the language name or ISO 639 code. 
 For example, to get the stop words for English, you can use stopwords["eng"], stopwords["en"], or stopwords["English"].
@@ -17,9 +17,18 @@ Stop words sourced from https://github.com/guo-yong-zhi/StopWords.jl/blob/main/R
 - A new `TokenizedNlpPipe`struct with the stop words removed from the tokens.
 
 # Examples
-```julia
-NlpPipe(["This is a test"]) |> tokenize |> remove_stop_words |> pipe -> pipe.tokens # [["This", "test"]]
-NlpPipe(["This is a test"]) |> tokenize |> remove_stop_words(stop_words=["test"]) |> pipe -> pipe.tokens # [["This", "is", "a"]]
+## Removing stop words from a tokenized pipe (default stop words)
+```jldoctest repl
+julia> NlpPipe(["This is a test"]) |> tokenize |> remove_stop_words |> pipe -> pipe.tokens
+1-element Vector{Vector{String}}:
+ ["This", "dinosaur"]
+```
+---
+## Using custom stop words
+```jldoctest repl
+julia> NlpPipe(["This is a dinosaur"]) |> tokenize |> pipe -> remove_stop_words(pipe, stop_words=Set(["This", "dinosaur"])) |> pipe -> pipe.tokens
+1-element Vector{Vector{String}}:
+ ["is", "a"]
 ```
 """
 function remove_stop_words(pipe::TokenizedNlpPipe; language::String="en", stop_words::Set{String}=Set{String}())::TokenizedNlpPipe

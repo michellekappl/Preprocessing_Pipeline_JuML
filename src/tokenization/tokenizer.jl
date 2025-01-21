@@ -8,6 +8,25 @@ function tokenize_document(doc::String, level::Symbol = :word)::Vector{String}
     end
 end
 
+"""
+    tokenize(pipe::NlpPipe, level::Symbol = :word) -> TokenizedNlpPipe
+
+Tokenizes the documents in the corpus of the given `NlpPipe` object. The `level` parameter can be set to `:word` or `:character`.
+
+# Arguments
+- `pipe::NlpPipe`: An `NlpPipe` object containing a corpus of documents.
+- `level::Symbol`: The tokenization level, either `:word` (default) or `:character`.
+
+# Returns
+- `TokenizedNlpPipe`: A new `TokenizedNlpPipe` object with the tokenized documents.
+
+# Usage Example
+```jldoctest repl
+julia> NlpPipe(["Hello world", "Julia is great"]) |> tokenize
+TokenizedNlpPipe(["Hello world", "Julia is great"], [["Hello", "world"], ["Julia", "is", "great"]], Set(["great", "Hello", "is", "Julia", "world"]), nothing)
+```
+---
+"""
 function tokenize(pipe::NlpPipe, level::Symbol = :word)::TokenizedNlpPipe
     tokenized_corpus = map(document -> tokenize_document(document, level), pipe.corpus)
     return TokenizedNlpPipe(pipe.corpus, tokenized_corpus, pipe.labels)

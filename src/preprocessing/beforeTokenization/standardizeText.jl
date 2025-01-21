@@ -25,7 +25,7 @@ end
 
 
 """
-   standardize_text(pipe::NlpPipe)::NlpPipe
+   standardize_text(pipe::NlpPipe) -> NlpPipe
 
 Applies the `standardize_document` function to each document in the corpus of the given `NlpPipe` object.
 
@@ -34,6 +34,13 @@ Applies the `standardize_document` function to each document in the corpus of th
 
 # Returns
 - `NlpPipe`: A new `NlpPipe` object with the standardized corpus and the original labels.
+
+# Usage Example
+```jldoctest repl
+julia> NlpPipe(["Hello WORLD", "Julia is GREAT"]) |> standardize_text
+NlpPipe(["hello world", "julia is great"], nothing)
+```
+---
 """
 function standardize_text(pipe::NlpPipe)::NlpPipe
    corpus = map(standardize_document, pipe.corpus)

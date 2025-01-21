@@ -19,23 +19,23 @@ include("vectorization/bagOfNGrams.jl")
 include("vectorization/tfIdf.jl")
 
 export 
-   # Pipe Structs
-   NlpPipe, 
-   TokenizedNlpPipe, 
-   VectorizedNlpPipe, 
+    # Pipe Structs
+    NlpPipe, 
+    TokenizedNlpPipe, 
+    VectorizedNlpPipe, 
 
-   # Tokenization
-   tokenize, 
+    # Tokenization
+    tokenize, 
 
-   # Preprocessing
-   expand_contractions,
-   mask_numbers,
-   one_hot_encoding,
-   remove_noise,  
-   remove_stop_words, 
-   standardize_text,
+    # Preprocessing
+    expand_contractions,
+    mask_numbers,
+    one_hot_encoding,
+    remove_noise,  
+    remove_stop_words, 
+    standardize_text,
 
-   # Vectorization
+    # Vectorization
     bag_of_ngrams,
     bag_of_words,
     one_hot_encoding,

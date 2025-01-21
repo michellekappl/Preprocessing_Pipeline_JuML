@@ -1,5 +1,5 @@
 """
-    tf_idf(pipe::TokenizedNlpPipe; tf_weighting::String = "relative term frequency", idf_weighting::String="inverse document frequency")::VectorizedNlpPipe
+    tf_idf(pipe::TokenizedNlpPipe; tf_weighting::String = "relative term frequency", idf_weighting::String="inverse document frequency") -> VectorizedNlpPipe
 
 Compute the TF-IDF (Term Frequency-Inverse Document Frequency) representation of the tokenized documents in the given `pipe`.
 
@@ -11,6 +11,12 @@ Compute the TF-IDF (Term Frequency-Inverse Document Frequency) representation of
 # Returns
 - `VectorizedNlpPipe`: A new pipeline containing the TF-IDF vectorized representation of the documents.
 
+# Usage Examples
+```jldoctest repl
+julia> NlpPipe(["words one", "words two"]) |> tokenize |> tf_idf
+VectorizedNlpPipe(Matrix{<:Union{Float64, Int64}}[[0.0 0.0 0.0; 0.0 0.35 0.0], [0.0 0.0 0.0; 0.0 0.0 0.35]], Dict("two" => 3, "one" => 2, "words" => 1), nothing)
+```
+---
 """
 function tf_idf(pipe::TokenizedNlpPipe; tf_weighting::String = "relative term frequency", idf_weighting::String="inverse document frequency")::VectorizedNlpPipe
     vocab_dict = tf_idf_vocab(pipe)

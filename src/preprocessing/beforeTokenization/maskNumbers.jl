@@ -1,5 +1,5 @@
 """
-    mask_numbers(pipe::NlpPipe; replace_with::String="<NUM>")::NlpPipe
+    mask_numbers(pipe::NlpPipe; replace_with::String="<NUM>") -> NlpPipe
 
 Replaces all numbers in the text of the given `NlpPipe` corpus with a specified string.
 
@@ -11,10 +11,11 @@ Replaces all numbers in the text of the given `NlpPipe` corpus with a specified 
 - `NlpPipe`: A new `NlpPipe` object with the numbers in the corpus replaced by the specified string.
 
 # Example
+```jldoctest repl
+julia> NlpPipe(["The price is 1000€."]) |> mask_numbers
+NlpPipe(["The price is <NUM>€."], nothing)
 ```
-julia> pipe = NlpPipe(["The price is 1000€."])
-julia> number_to_word(pipe) 
-NlpPipe(["The price is <NUM>€."])
+---
 """
 function mask_numbers(pipe::NlpPipe; replace_with::String="<NUM>")::NlpPipe
     corpus = map(document -> replace(document, r"\d+(?:\.\d+)?\b" => replace_with), pipe.corpus)

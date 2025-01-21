@@ -238,6 +238,13 @@ Expand contractions in the input text. This function expands common English cont
 
 # Returns
 - output::NlpPipe: A **new** `NlpPipe` object with the contractions expanded in the corpus.
+
+# Usage Example
+```jldoctest repl
+julia> NlpPipe(["I'm happy", "I've got a cat"]) |> expand_contractions
+NlpPipe(["I am happy", "I have got a cat"], nothing)
+```
+---
 """
 function expand_contractions(pipe::NlpPipe)::NlpPipe
     corpus = map(expand_contractions_str, pipe.corpus)

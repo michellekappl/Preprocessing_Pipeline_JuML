@@ -10,12 +10,14 @@
 
 ## Features
 Refer to the diagram below to see explanation of all preprocessing and vectorize functions.
-- **Text preprocessing:** prepare textual data for machine learning tasks. Preprocessing steps include:
-  - noise removal 
-  - text standardization
-  - contraction expansion 
-  - number masking 
-  - stop word removal 
+- **Text preprocessing:** prepare textual data for machine learning tasks.
+  - To be applied _before_ tokenization:
+    - noise removal 
+    - text standardization
+    - contraction expansion
+  - To be applied _after_ tokenization:
+    - number masking 
+    - stop word removal 
 - **Tokenization:** Split text into words or characters.
 - **Vectorization:** Transform text into machine-learning-compatible vector representations.
   - bag of n grams 

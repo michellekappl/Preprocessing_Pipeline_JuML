@@ -3,7 +3,7 @@
 [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://michellekappl.github.io/Preprocessing_Pipeline_JuML)
 [![Coverage](https://codecov.io/gh/michellekappl/Preprocessing_Pipeline_JuML/branch/main/graph/badge.svg)](https://codecov.io/gh/michellekappl/Preprocessing_Pipeline_JuML)
 [![Build Status](https://github.com/michellekappl/Preprocessing_Pipeline_JuML/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/michellekappl/Preprocessing_Pipeline_JuML/actions/workflows/CI.yml?query=branch%3Amain)
-[ChatGpt Questions](https://github.com/michellekappl/Preprocessing_Pipeline_JuML/CHATGPT_QUESTIONS.md)
+
 
 
 **Preprocessing_Pipeline_JuML** is a Julia package for preprocessing text data in NLP pipelines. For more detailed explanation on what NLP and pipelining is, visit https://www.kdnuggets.com/2021/03/natural-language-processing-pipelines-explained.html (last visit: 23.01.25).

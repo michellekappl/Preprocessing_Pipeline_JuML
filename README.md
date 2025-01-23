@@ -15,8 +15,9 @@ Refer to the diagram below to see explanation of all preprocessing and vectorize
     - noise removal 
     - text standardization
     - contraction expansion
+    - number masking
   - To be applied _after_ tokenization:
-    - number masking 
+    - stemming
     - stop word removal 
 - **Tokenization:** Split text into words or characters.
 - **Vectorization:** Transform text into machine-learning-compatible vector representations.

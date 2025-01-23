@@ -1,12 +1,15 @@
-Q: "is there a regex for finding digits within a string, independent of length?"
-A: "Yes, there is a regex for finding digits within a string regardless of their length. The pattern is: \d+
+Questions will be abbreviated with **Q** and answers with **A**.
+
+- **Q:** "is there a regex for finding digits within a string, independent of length?"
+
+  - **A:** "Yes, there is a regex for finding digits within a string regardless of their length. The pattern is: \d+
 Explanation:
     - \d matches any single digit (0-9).
     - + matches one or more occurrences of the preceding element (in this case, digits).
 This means \d+ will match any sequence of consecutive digits in a string, regardless of how long the sequence is."
 
-Q: "can you list all word contractions that are possible in english language"
-A: "Here is a comprehensive list of common contractions in English, categorized for easier understanding. While this list may not be exhaustive, it includes nearly all widely used contractions:
+- **Q:** "can you list all word contractions that are possible in english language"
+  - **A:** "Here is a comprehensive list of common contractions in English, categorized for easier understanding. While this list may not be exhaustive, it includes nearly all widely used contractions:
 Contractions with "not"
 Contraction	Expansion
 aren't	are not
@@ -93,12 +96,12 @@ ma'am	madam
 
 This list includes the most commonly used contractions in English. Note that some contractions (like "ain't" or "y'all") are informal or dialectal. Others, like "o'clock", are more specific in usage."
 
-Q: "is there a regex that can find word contractions like we collected above"
-A: "Yes, you can use a regex to match English word contractions like those collected above. To do so, the regex should be designed to handle patterns involving an apostrophe (') followed by specific suffixes or entire contracted words. 
+- **Q:** "is there a regex that can find word contractions like we collected above"
+  - **A:** "Yes, you can use a regex to match English word contractions like those collected above. To do so, the regex should be designed to handle patterns involving an apostrophe (') followed by specific suffixes or entire contracted words. 
     Here is a general regex that matches the common word contractions listed: \b(?:[a-zA-Z]+n't|[a-zA-Z]+'(?:ll|re|ve|d|s|m|t))\b"
 
-Q: how do i set optional keyword arguments in julia in the argument of a function?
-A: In Julia, you can define optional keyword arguments by including them after a semicolon (;) in the function signature. Keyword arguments can have default values, making them optional.
+- **Q:** how do i set optional keyword arguments in julia in the argument of a function?
+  - **A:** In Julia, you can define optional keyword arguments by including them after a semicolon (;) in the function signature. Keyword arguments can have default values, making them optional.
 
 Here’s the general syntax:
 
@@ -115,8 +118,8 @@ Key Points:
     Keyword arguments can have default values, making them optional.
 
 
-Q: "can you provide an example call for stemming  for a stemming algorithm in julia please?"
-A: "Certainly! Here's an example of how to use a stemming algorithm in Julia with the SnowballStemmer.jl package. I'll show you a typical call for stemming words using this package.
+- **Q:** "can you provide an example call for stemming  for a stemming algorithm in julia please?"
+  - **A:** "Certainly! Here's an example of how to use a stemming algorithm in Julia with the SnowballStemmer.jl package. I'll show you a typical call for stemming words using this package.
 Example: Using Snowball Stemmer for English Text
 
     Install the SnowballStemmer Package (if you haven't done so already):
@@ -166,15 +169,16 @@ You can replace "English" with other languages supported by the SnowballStemmer 
 
 Let me know if you need more examples or adjustments! 😊"
 
-Q: what do i call the tag if i replace a number with <NUM> in nl
-A: The process of replacing numbers with <NUM> in natural language (NL) processing is typically referred to as "number masking" or "number normalization". The tag <NUM> itself is often called a placeholder tag, masking token, or entity tag.
+- **Q:** what do i call the tag if i replace a number with <NUM> in nl
+  - **A:** The process of replacing numbers with <NUM> in natural language (NL) processing is typically referred to as "number masking" or "number normalization". The tag <NUM> itself is often called a placeholder tag, masking token, or entity tag.
 Common terminology:
 Number masking: The act of replacing numbers in text with a generic placeholder (e.g., <NUM>).
 Placeholder tag: Refers to the specific token used, such as <NUM>, <NUMBER>, or any other chosen label.
 Normalization: A broader term encompassing various methods of transforming text into a standardized form, including masking numbers.
 Would you like help implementing this in a specific scenario?
-Q: what other masks exist except for <NUM>
-A: In Natural Language Processing (NLP), masking involves replacing specific types of tokens with placeholders to generalize or anonymize the text. Apart from <NUM>, here are other common masks:
+
+- **Q:** what other masks exist except for <NUM>
+  - **A:** In Natural Language Processing (NLP), masking involves replacing specific types of tokens with placeholders to generalize or anonymize the text. Apart from <NUM>, here are other common masks:
 Entity Masks
 <DATE>: For dates and times (e.g., "January 1, 2025" → <DATE>).
 <TIME>: For time expressions (e.g., "3:30 PM" → <TIME>).

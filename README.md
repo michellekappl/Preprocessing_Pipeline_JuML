@@ -6,7 +6,7 @@
 
 
 
-**Preprocessing_Pipeline_JuML** is a Julia package for preprocessing text data in NLP pipelines. For more detailed explanation on what NLP and pipelining is, visit https://www.kdnuggets.com/2021/03/natural-language-processing-pipelines-explained.html (last visit: 23.01.25).
+**Preprocessing_Pipeline_JuML** is a Julia package for preprocessing text data in NLP pipelines. For more detailed explanation on what NLP and pipelining is, visit https://www.kdnuggets.com/2021/03/natural-language-processing-pipelines-explained.html _(last visit: 23.01.25)_.
 
 ## Features
 Refer to the diagram below to see explanation of all preprocessing and vectorize functions.

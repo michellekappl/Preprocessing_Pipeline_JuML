@@ -97,6 +97,7 @@ It is possible to do more than one preprocessing step at once:
 ```julia
 pipe2= NlpPipe(test_corpus) |> standardize_text |> remove_noise |> mask_numbers |> tokenize |> bag_of_words
 ``` 
+You can find details about all functions and their parameters [here.](https://michellekappl.github.io/Preprocessing_Pipeline_JuML/dev/)
 
 **4. Inspect the pipeline outputs:**
 

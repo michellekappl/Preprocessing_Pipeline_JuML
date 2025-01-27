@@ -1,0 +1,216 @@
+Questions will be abbreviated with **Q** and answers with **A**.
+
+- **Q:** "is there a regex for finding digits within a string, independent of length?"
+
+  - **A:** "Yes, there is a regex for finding digits within a string regardless of their length. The pattern is: \d+
+Explanation:
+    - \d matches any single digit (0-9).
+    - + matches one or more occurrences of the preceding element (in this case, digits).
+This means \d+ will match any sequence of consecutive digits in a string, regardless of how long the sequence is."
+
+- **Q:** "can you list all word contractions that are possible in english language"
+  - **A:** "Here is a comprehensive list of common contractions in English, categorized for easier understanding. While this list may not be exhaustive, it includes nearly all widely used contractions:
+Contractions with "not"
+Contraction	Expansion
+aren't	are not
+can't	cannot
+couldn't	could not
+didn't	did not
+doesn't	does not
+don't	do not
+hadn't	had not
+hasn't	has not
+haven't	have not
+isn't	is not
+mightn't	might not
+mustn't	must not
+needn't	need not
+shouldn't	should not
+wasn't	was not
+weren't	were not
+won't	will not
+wouldn't	would not
+Contractions with "is/has"
+Contraction	Expansion
+he's	he is / he has
+she's	she is / she has
+it's	it is / it has
+that's	that is / that has
+there's	there is / there has
+where's	where is / where has
+who's	who is / who has
+what's	what is / what has
+how's	how is / how has
+Contractions with "will"
+Contraction	Expansion
+I'll	I will
+you'll	you will
+he'll	he will
+she'll	she will
+it'll	it will
+we'll	we will
+they'll	they will
+Contractions with "would/had"
+Contraction	Expansion
+I'd	I would / I had
+you'd	you would / you had
+he'd	he would / he had
+she'd	she would / she had
+it'd	it would / it had
+we'd	we would / we had
+they'd	they would / they had
+Contractions with "have"
+Contraction	Expansion
+I've	I have
+you've	you have
+we've	we have
+they've	they have
+who've	who have
+would've	would have
+could've	could have
+should've	should have
+might've	might have
+Contractions with "am"
+Contraction	Expansion
+I'm	I am
+Contractions with "are"
+Contraction	Expansion
+you're	you are
+we're	we are
+they're	they are
+Contractions with "let"
+Contraction	Expansion
+let's	let us
+Contractions with "there"
+Contraction	Expansion
+there's	there is / there has
+Contractions with "here"
+Contraction	Expansion
+here's	here is
+Miscellaneous Contractions
+Contraction	Expansion
+ain't	am not / is not / are not / has not / have not
+o'clock	of the clock
+y'all	you all
+ma'am	madam
+
+This list includes the most commonly used contractions in English. Note that some contractions (like "ain't" or "y'all") are informal or dialectal. Others, like "o'clock", are more specific in usage."
+
+- **Q:** "is there a regex that can find word contractions like we collected above"
+  - **A:** "Yes, you can use a regex to match English word contractions like those collected above. To do so, the regex should be designed to handle patterns involving an apostrophe (') followed by specific suffixes or entire contracted words. 
+    Here is a general regex that matches the common word contractions listed: \b(?:[a-zA-Z]+n't|[a-zA-Z]+'(?:ll|re|ve|d|s|m|t))\b"
+
+- **Q:** how do i set optional keyword arguments in julia in the argument of a function?
+  - **A:** In Julia, you can define optional keyword arguments by including them after a semicolon (;) in the function signature. Keyword arguments can have default values, making them optional.
+
+Here’s the general syntax:
+
+function my_function(positional_arg1, positional_arg2; keyword_arg1=default_value1, keyword_arg2=default_value2)
+    # Function body
+    println("Positional Args: $positional_arg1, $positional_arg2")
+    println("Keyword Args: $keyword_arg1, $keyword_arg2")
+end
+
+Key Points:
+
+    Positional Arguments come before the semicolon (;).
+    Keyword Arguments are declared after the semicolon and are accessed using name=value when calling the function.
+    Keyword arguments can have default values, making them optional.
+
+
+- **Q:** "can you provide an example call for stemming  for a stemming algorithm in julia please?"
+  - **A:** "Certainly! Here's an example of how to use a stemming algorithm in Julia with the SnowballStemmer.jl package. I'll show you a typical call for stemming words using this package.
+Example: Using Snowball Stemmer for English Text
+
+    Install the SnowballStemmer Package (if you haven't done so already):
+
+using Pkg
+Pkg.add("SnowballStemmer")
+
+    Load the Package and Stem Words:
+
+using SnowballStemmer
+
+# Create an English stemmer
+stemmer = Stemmer("English")
+
+# Sample input
+words = ["running", "jumps", "happily", "cats"]
+
+# Apply stemming to each word in the vector
+stemmed_words = [stemmer(word) for word in words]
+
+# Display the stemmed words
+println(stemmed_words)  # Output: ["run", "jump", "happili", "cat"]
+
+Explanation:
+
+    Stemmer("English"): This creates an instance of the English language stemmer.
+    stemmer(word): Applies the stemming algorithm to a single word.
+    List comprehension [stemmer(word) for word in words]: This applies stemming to each word in the words vector.
+    Output: The result is a vector of stemmed words, e.g., ["run", "jump", "happili", "cat"].
+
+Example Output:
+
+["run", "jump", "happili", "cat"]
+
+    "running" becomes "run".
+    "jumps" becomes "jump".
+    "happily" becomes "happili" (stemming doesn't always give perfect results for all words).
+    "cats" becomes "cat".
+
+Summary:
+
+    Creating the stemmer: stemmer = Stemmer("English").
+    Stemming words: Use stemmer(word) for each word.
+    Vectorized application: Use list comprehension to stem multiple words.
+
+You can replace "English" with other languages supported by the SnowballStemmer package (like "German", "Spanish", etc.), depending on your needs.
+
+Let me know if you need more examples or adjustments! 😊"
+
+- **Q:** what do i call the tag if i replace a number with <NUM> in nl
+  - **A:** The process of replacing numbers with <NUM> in natural language (NL) processing is typically referred to as "number masking" or "number normalization". The tag <NUM> itself is often called a placeholder tag, masking token, or entity tag.
+Common terminology:
+Number masking: The act of replacing numbers in text with a generic placeholder (e.g., <NUM>).
+Placeholder tag: Refers to the specific token used, such as <NUM>, <NUMBER>, or any other chosen label.
+Normalization: A broader term encompassing various methods of transforming text into a standardized form, including masking numbers.
+Would you like help implementing this in a specific scenario?
+
+- **Q:** what other masks exist except for <NUM>
+  - **A:** In Natural Language Processing (NLP), masking involves replacing specific types of tokens with placeholders to generalize or anonymize the text. Apart from <NUM>, here are other common masks:
+Entity Masks
+<DATE>: For dates and times (e.g., "January 1, 2025" → <DATE>).
+<TIME>: For time expressions (e.g., "3:30 PM" → <TIME>).
+<URL>: For URLs or web links (e.g., "https://example.com" → <URL>).
+<EMAIL>: For email addresses (e.g., "user@example.com" → <EMAIL>).
+<PHONE>: For phone numbers (e.g., "(123) 456-7890" → <PHONE>).
+<CURRENCY>: For monetary values (e.g., "$10.50" → <CURRENCY>).
+<NAME>: For proper names (e.g., "John Smith" → <NAME>).
+<LOCATION>: For geographic locations (e.g., "New York City" → <LOCATION>).
+<ORGANIZATION>: For organizations or companies (e.g., "Google" → <ORGANIZATION>).
+<PRODUCT>: For product names (e.g., "iPhone 14" → <PRODUCT>).
+Content-Specific Masks
+<HASHTAG>: For hashtags in social media (e.g., "#LoveCoding" → <HASHTAG>).
+<MENTION>: For social media mentions (e.g., "@user123" → <MENTION>).
+<TOKEN>: For general tokens that don't fit into other categories.
+<SENSITIVE>: For sensitive information like ID numbers, passwords, or personal data.
+<PLATE>: For license plates or other standardized codes.
+<FILE>: For file paths or filenames (e.g., "/path/to/file.txt" → <FILE>).
+Custom Masks
+Depending on the application, you can create custom masks for domain-specific data:
+<DISEASE>: For medical terms (e.g., "diabetes" → <DISEASE>).
+<SYMPTOM>: For symptoms in clinical text (e.g., "fever" → <SYMPTOM>).
+<CHEMICAL>: For chemical names (e.g., "H2SO4" → <CHEMICAL>).
+<TAG>: For labels in annotated datasets (e.g., <POSITIVE> for sentiment analysis).
+Miscellaneous
+<MASK>: A general mask for masked language models like BERT.
+<UNKNOWN> or <UNK>: For unknown or out-of-vocabulary tokens.
+<DIGIT>: If distinguishing single digits from other numbers is important.
+<AGE>: For age values (e.g., "25 years old" → <AGE>).
+Application-Specific Examples
+For legal, medical, or technical fields, masks can be tailored. For example:
+In legal documents: <CASE_NUMBER>, <LAW_SECTION>.
+In medical records: <PATIENT_ID>, <DIAGNOSIS>.
+In technical logs: <IP_ADDRESS>, <ERROR_CODE>.
+Would you like guidance on implementing a specific set of masks for your use case?

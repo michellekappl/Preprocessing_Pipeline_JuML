@@ -25,6 +25,7 @@ Refer to the diagram below to see explanation of all preprocessing and vectorize
   - bag of words
   - tf-Idf
   - one hot encoding
+  - pspspspspspsppspspspspspsps
 
 ## API Structure
 The package provides a set of pipeline stages that can be chained together to preprocess text data. The pipeline stages are implemented as functions that take a `NlpPipe` or `TokenizedNlpPipe` struct as input and return a modified object of the same type. This makes it easy to build custom preprocessing pipelines by piping together the desired stages.

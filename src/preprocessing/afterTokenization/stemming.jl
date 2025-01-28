@@ -12,7 +12,7 @@ using SnowballStemmer
 # Returns
 - `TokenizedNlpPipe`: A new `TokenizedNlpPipe` object with the stemmed tokens.
 
-# Examples
+# Example Usage
 
 """
 function stemming(pipe::TokenizedNlpPipe; language::String="english")::TokenizedNlpPipe

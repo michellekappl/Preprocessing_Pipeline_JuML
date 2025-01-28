@@ -11,12 +11,12 @@ Stop words sourced from [StopWords.jl](https://github.com/guo-yong-zhi/StopWords
 # Arguments
 - `pipe::TokenizedNlpPipe`: The input `TokenizedNlpPipe` object containing the tokens to be processed.
 - `language::String = "en"`: Defaults to english, other languages are possible (see linked github-page above)
-- `stop_words::Set{String} = Set{String}()`: Defaults to `StopWords.jl`, possible to set own stopword-set.
+- `stop_words::Set{String} = Set{String}()`: Defaults to `StopWords.jl`-stopwords set, possible to set own stopword-set.
 
 # Returns
 - `TokenizedNlpPipe`: A new `TokenizedNlpPipe` object with the stop words removed from the tokens.
 
-# Examples
+# Example Usage
 ## Removing stop words from a tokenized pipe (default stop words)
 ```jldoctest repl
 julia> NlpPipe(["This is a dinosaur"]) |> tokenize |> remove_stop_words |> pipe -> pipe.tokens

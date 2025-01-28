@@ -13,6 +13,7 @@ StopWords = "35248bf2-58a5-46a0-9b1d-c0a73a50a107"
 StringEncodings = "69024149-9ee7-55f6-a4c4-859efe599b68"
 
 [compat]
+Coverage = "1"
 Documenter = "1.8"
 LiveServer = "1"
 Revise = "3"

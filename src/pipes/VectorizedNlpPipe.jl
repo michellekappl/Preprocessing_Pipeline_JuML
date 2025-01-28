@@ -45,7 +45,7 @@ VectorizedNlpPipe(Matrix{<:Union{Float64, Int64}}[[1 2; 3 4], [5 6; 7 8]], Dict(
 ---
 """
 struct VectorizedNlpPipe{T<:Real}
-   tokens::Vector{Matrix{T}} 
+   tokens::Vector{Matrix{T}}
    vocabulary::Dict{String, Int}
    labels::Union{Vector{String}, Nothing}
 end

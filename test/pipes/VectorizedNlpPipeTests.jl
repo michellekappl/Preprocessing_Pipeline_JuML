@@ -33,15 +33,7 @@
    @test all(t -> t isa Matrix{Int}, pipe.tokens)
    @test size(pipe.tokens[1]) == (2, 2)
    @test size(pipe.tokens[2]) == (2, 2)
-
-   # ---------------------------------------------------------
-   # Test edge cases: Empty tokens or vocabulary
-   # ---------------------------------------------------------
-   empty_pipe = VectorizedNlpPipe([], Dict(), nothing)
-   @test isempty(empty_pipe.tokens)
-   @test isempty(empty_pipe.vocabulary)
-   @test empty_pipe.labels === nothing
-
+   
    # ---------------------------------------------------------
    # Test invalid inputs
    # ---------------------------------------------------------

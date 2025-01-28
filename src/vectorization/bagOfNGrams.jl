@@ -13,7 +13,7 @@ Create a bag of n-grams out of given TokenizedNlpPipe, with padding for shorter 
 # Example Usage
 ```jldoctest repl
 julia> NlpPipe(["words one", "words two"]) |> tokenize |> bag_of_ngrams
-VectorizedNlpPipe(Matrix{<:Union{Float64, Int64}}[[1 0 0; 0 1 0], [1 0 0; 0 0 1]], Dict("two" => 3, "one" => 2, "words" => 1), nothing)
+VectorizedNlpPipe{Int64}([[1 0 0; 0 1 0], [1 0 0; 0 0 1]], Dict("two" => 3, "one" => 2, "words" => 1), nothing)
 ```
 ---
 """

@@ -4,7 +4,7 @@
 A structure for handling vectorized representations of tokenized text data, including a vocabulary mapping and optional labels.
 
 # Fields
-- `tokens::Vector{Matrix{<:Union{Int, Float64}}}`: A collection of numerical representations (e.g., embeddings, one-hot encodings) for tokenized text.
+- `tokens::Vector{Matrix{T<:Real}`: A collection of numerical representations (e.g., embeddings, one-hot encodings) for tokenized text.
 - `vocabulary::Dict{String, Int}`: A dictionary mapping words to unique integer indices.
 - `labels::Union{Vector{String}, Nothing}`: Optional labels corresponding to each document.
 
@@ -18,7 +18,7 @@ julia> corpus = ["Hello world", "Julia is great"]
  "Julia is great"
 
 julia> NlpPipe(corpus) |> tokenize |> one_hot_encoding # (or any other vectorization method)
-VectorizedNlpPipe(Matrix{<:Union{Float64, Int64}}[[0 1 … 0 0; 0 0 … 0 1], [0 0 … 1 0; 0 0 … 0 0; 1 0 … 0 0]], Dict("great" => 1, "Hello" => 2, "is" => 3, "Julia" => 4, "world" => 5), nothing)
+VectorizedNlpPipe{Int64}([[0 1 … 0 0; 0 0 … 0 1], [0 0 … 1 0; 0 0 … 0 0; 1 0 … 0 0]], Dict("great" => 1, "Hello" => 2, "is" => 3, "Julia" => 4, "world" => 5), nothing)
 ```
 ---
 ## Creating a pipe from scratch
@@ -40,7 +40,7 @@ julia> labels = ["greeting", "statement"]
  "statement"
 
 julia> VectorizedNlpPipe(tokens, vocab, labels)
-VectorizedNlpPipe(Matrix{<:Union{Float64, Int64}}[[1 2; 3 4], [5 6; 7 8]], Dict("hello" => 1, "Julia" => 3, "world" => 2), ["greeting", "statement"])
+VectorizedNlpPipe{Int64}([[1 2; 3 4], [5 6; 7 8]], Dict("hello" => 1, "Julia" => 3, "world" => 2), ["greeting", "statement"])
 ```
 ---
 """

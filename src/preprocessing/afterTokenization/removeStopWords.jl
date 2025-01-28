@@ -6,7 +6,7 @@ using StopWords
 Removes predefined stopwords. You can access the stop words for a given language using the language name or ISO 639 code. 
 For example, to get the stop words for English, you can use stopwords["eng"], stopwords["en"], or stopwords["English"].
 
-Stop words sourced from https://github.com/guo-yong-zhi/StopWords.jl/blob/main/README.md.
+Stop words sourced from [StopWords.jl](https://github.com/guo-yong-zhi/StopWords.jl/blob/main/README.md).
 
 # Arguments
 - `pipe::TokenizedNlpPipe`: The input `TokenizedNlpPipe` object containing the tokens to be processed.

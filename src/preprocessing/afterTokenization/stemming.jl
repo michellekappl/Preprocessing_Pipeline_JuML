@@ -3,7 +3,7 @@ using SnowballStemmer
 """
     stemming(pipe::TokenizedNlpPipe; language::String="english") -> TokenizedNlpPipe
  
-    Reduces tokens to their roots by removing pre- and suffixes. These are provided by `SnowballStemmer.jl`, see https://docs.juliahub.com/General/SnowballStemmer/stable/.
+    Reduces tokens to their roots by removing pre- and suffixes. These are provided by [SnowballStemmer.jl](https://docs.juliahub.com/General/SnowballStemmer/stable/).
 
  # Arguments
 - `pipe::TokenizedNlpPipe`: The input `TokenizedNlpPipe` object containing the tokens to be processed.

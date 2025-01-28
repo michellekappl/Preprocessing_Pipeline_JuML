@@ -6,10 +6,12 @@ using Test
     include("pipes/TokenizedNlpPipeTests.jl")
 
     include("preprocessing/afterTokenization/removeStopWordsTests.jl")
+    include("preprocessing/afterTokenization/standardizeEncodingTests.jl")
     include("preprocessing/beforeTokenization/expandContractionsTests.jl")
     include("preprocessing/beforeTokenization/maskNumbersTests.jl")
     include("preprocessing/beforeTokenization/removeNoiseTests.jl")
     include("preprocessing/beforeTokenization/standardizeTextTests.jl")
+
 
     include("vectorization/oneHotEncodingTests.jl")
     include("vectorization/bagOfWordsTests.jl")

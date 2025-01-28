@@ -11,6 +11,7 @@ include("preprocessing/beforeTokenization/maskNumbers.jl")
 include("preprocessing/beforeTokenization/expandContractions.jl")
 include("preprocessing/beforeTokenization/standardizeText.jl")
 
+include("preprocessing/afterTokenization/standardizeEncoding.jl")
 include("preprocessing/afterTokenization/removeStopWords.jl")
 
 include("vectorization/oneHotEncoding.jl")
@@ -34,6 +35,7 @@ export
     remove_noise,  
     remove_stop_words, 
     standardize_text,
+    standardize_encoding,
 
     # Vectorization
     bag_of_ngrams,

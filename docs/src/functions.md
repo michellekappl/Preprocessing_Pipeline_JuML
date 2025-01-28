@@ -1,3 +1,3 @@
 ```@docs
-src/pipes/NlpPipe
+NlpPipe
 ```

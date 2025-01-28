@@ -49,4 +49,6 @@ pipe = NlpPipe(corpus) |> remove_noise |> tokenize |> one_hot_encoding
 
 ![Pipeline Diagram](pipeline_diagram.png)
 
-
+```@autodocs
+Modules = [Preprocessing_Pipeline_JuML]
+```

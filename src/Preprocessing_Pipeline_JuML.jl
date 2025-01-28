@@ -11,6 +11,7 @@ include("preprocessing/beforeTokenization/maskNumbers.jl")
 include("preprocessing/beforeTokenization/expandContractions.jl")
 include("preprocessing/beforeTokenization/standardizeText.jl")
 
+include("preprocessing/afterTokenization/stemming.jl")
 include("preprocessing/afterTokenization/removeStopWords.jl")
 
 include("vectorization/oneHotEncoding.jl")
@@ -30,6 +31,7 @@ export
     # Preprocessing
     expand_contractions,
     mask_numbers,
+    stemming,
     one_hot_encoding,
     remove_noise,  
     remove_stop_words, 

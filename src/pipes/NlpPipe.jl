@@ -53,7 +53,7 @@ struct NlpPipe
    labels::Union{Vector{String}, Nothing}
 
    function NlpPipe(corpus::Vector{String}, labels::Union{Vector{String}, Nothing})
-      if labels !== nothing && length(corpus) != length(labels)
+      if !isnothing(labels) && length(corpus) != length(labels)
          throw(ArgumentError("The number of documents and labels must be the same."))
       end
 

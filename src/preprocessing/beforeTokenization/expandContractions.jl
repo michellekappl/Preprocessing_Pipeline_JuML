@@ -1,6 +1,6 @@
 # Contractions taken from the Wikipedia article on List of English contractions
 # (https://en.wikipedia.org/wiki/Wikipedia:List_of_English_contractions)
-contractions = Dict(
+const contractions = Dict(
     "a'ight" => "alright",
     "ain't" => "am not",
     "amn't" => "am not",

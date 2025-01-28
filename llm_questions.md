@@ -298,4 +298,36 @@ Specifying a different language for stemming
 julia> NlpPipe(["Cela teste le stemming"]) |> tokenize |> pipe -> stemming(pipe, language="french") |> pipe -> pipe.tokens
 1-element Vector{Vector{String}}:
  ["cel", "test", "le", "stem"]
-"""
+
+- **Q:** 
+i get this warning with julia
+WARNING: Method definition get_vocab_dict(Any) in module Preprocessing_Pipeline_JuML at /home/lad/test/Preprocessing_Pipeline_JuML/src/vectorization/vocabDict.jl:1 overwritten on the same line (check for duplicate calls to include).eline_JuML
+- **A:**
+This warning means that the method get_vocab_dict is being defined more than once in your Julia code on the same line in the specified file. This often happens when the file containing the method is included multiple times using include.
+Why this happens
+The include function in Julia loads and executes the content of a file. If you call include("file.jl") multiple times in your code, it can lead to method redefinition warnings, as the functions or methods from the file are redefined each time.
+How to fix it
+Check for duplicate include calls:
+Ensure that the file vocabDict.jl is included only once in your project. Look for duplicate include statements in your code, such as:
+include("vectorization/vocabDict.jl")
+If you find multiple calls, remove the duplicates.
+Use modules properly:
+Wrap your code in vocabDict.jl inside a module. This way, even if the file is included multiple times, the function definitions won't clash.
+module VocabDict
+    export get_vocab_dict
+
+    function get_vocab_dict(arg)
+        # Your function definition
+    end
+end
+You can then use:
+using .VocabDict
+get_vocab_dict(arg)
+Avoid redundant includes during development:
+If you're including files interactively in a Julia REPL or Jupyter notebook for testing, avoid repeatedly calling include on the same file. Instead, consider using Revise.jl for live-reloading changes:
+using Revise
+include("vectorization/vocabDict.jl")
+Clean up project structure:
+Ensure your project is well-structured with a Project.toml file, and place reusable components in dedicated modules or packages. This reduces the need for repeated include calls.
+Verifying the Fix
+After making these changes, restart your Julia session and run the script again. The warning should no longer appear.

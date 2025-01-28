@@ -20,7 +20,7 @@ Tokenizes the documents in the corpus of the given `NlpPipe` object. The `level`
 # Returns
 - `TokenizedNlpPipe`: A new `TokenizedNlpPipe` object with the tokenized documents.
 
-# Usage Example
+# Example Usage
 ```jldoctest repl
 julia> NlpPipe(["Hello world", "Julia is great"]) |> tokenize
 TokenizedNlpPipe(["Hello world", "Julia is great"], [["Hello", "world"], ["Julia", "is", "great"]], Set(["great", "Hello", "is", "Julia", "world"]), nothing)

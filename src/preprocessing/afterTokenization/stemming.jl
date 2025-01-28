@@ -1,7 +1,19 @@
 using SnowballStemmer
 
 """
-stemming(input) stems words to their origin, default language is english, we're using SnowballStemmer.jl
+    stemming(pipe::TokenizedNlpPipe; language::String="english") -> TokenizedNlpPipe
+ 
+    Reduces tokens to their roots by removing pre- and suffixes. These are provided by `SnowballStemmer.jl`, see https://docs.juliahub.com/General/SnowballStemmer/stable/.
+
+ # Arguments
+- `pipe::TokenizedNlpPipe`: The input `TokenizedNlpPipe` object containing the tokens to be processed.
+- `language::String = "en"`: Defaults to english, other languages are possible
+
+# Returns
+- `TokenizedNlpPipe`: A new `TokenizedNlpPipe` object with the stemmed tokens.
+
+# Examples
+
 """
 function stemming(pipe::TokenizedNlpPipe; language::String="english")::TokenizedNlpPipe
     #create stemmer specified language
@@ -16,6 +28,7 @@ function stemming(pipe::TokenizedNlpPipe; language::String="english")::Tokenized
     end
     
     return TokenizedNlpPipe(pipe.corpus, stemmed_data, pipe.labels)
+
 end
 
-export stemming
+

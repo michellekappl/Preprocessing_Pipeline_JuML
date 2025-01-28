@@ -5,13 +5,13 @@ include("vocabDict.jl")
 
 Create a one-hot-encoding out of given TokenizedNlpPipe
 
-# Arguments:
+# Arguments
 - `pipe::TokenizedNlpPipe`: The input `TokenizedNlpPipe` object containing the tokenized documents.
 
-# Returns:
+# Returns
 - `VectorizedNlpPipe`: The output `VectorizedNlpPipe` object containing the one-hot-encoded documents.
 
-# Examples:
+# Example Usage
 ```jldoctest repl
 julia> NlpPipe(["words one", "words two"]) |> tokenize |> one_hot_encoding
 VectorizedNlpPipe(Matrix{<:Union{Float64, Int64}}[[0 0 1; 0 1 0], [0 0 1; 1 0 0]], Dict("two" => 1, "one" => 2, "words" => 3), nothing)

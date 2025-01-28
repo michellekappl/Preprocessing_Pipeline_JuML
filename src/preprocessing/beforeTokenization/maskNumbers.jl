@@ -10,7 +10,7 @@ Replaces all numbers in the text of the given `NlpPipe` corpus with a specified 
 # Returns
 - `NlpPipe`: A new `NlpPipe` object with the numbers in the corpus replaced by the specified string.
 
-# Example
+# Example Usage
 ```jldoctest repl
 julia> NlpPipe(["The price is 1000€."]) |> mask_numbers
 NlpPipe(["The price is <NUM>€."], nothing)

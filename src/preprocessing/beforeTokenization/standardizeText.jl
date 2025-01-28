@@ -36,7 +36,7 @@ Applies the `standardize_document` function to each document in the corpus of th
 # Returns
 - `NlpPipe`: A new `NlpPipe` object with the standardized corpus and the original labels.
 
-# Usage Example
+# Example Usage
 ```jldoctest repl
 julia> NlpPipe(["Hello WORLD", "Julia is GREAT"]) |> standardize_text
 NlpPipe(["hello world", "julia is great"], nothing)

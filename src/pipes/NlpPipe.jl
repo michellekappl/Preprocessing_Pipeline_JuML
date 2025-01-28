@@ -23,7 +23,7 @@ A simple pipeline structure for handling text data (corpus) and corresponding la
    **Throws** an `ArgumentError` if `labels` is not `nothing` and its length does not match the corpus length.
 
 # Example Usage
-## Creating a pipe from a corpus with multiple documents, inclusing labels
+## Creating a pipe from a corpus with multiple documents, including labels
 ```jldoctest repl
 julia> pipe1 = NlpPipe(["document1", "document2"], ["label1", "label2"])
 NlpPipe(["document1", "document2"], ["label1", "label2"])

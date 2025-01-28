@@ -11,7 +11,7 @@ Compute the TF-IDF (Term Frequency-Inverse Document Frequency) representation of
 # Returns
 - `VectorizedNlpPipe`: A new pipeline containing the TF-IDF vectorized representation of the documents.
 
-# Usage Examples
+# Example Usage
 ```julia
 julia> NlpPipe(["words one", "words two"]) |> tokenize |> tf_idf
 VectorizedNlpPipe(Matrix{<:Union{Float64, Int64}}[[0.0 0.0 0.0; 0.0 0.35 0.0], [0.0 0.0 0.0; 0.0 0.0 0.35]], Dict("two" => 3, "one" => 2, "words" => 1), nothing)

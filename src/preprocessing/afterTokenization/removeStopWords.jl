@@ -9,14 +9,14 @@ For example, to get the stop words for English, you can use stopwords["eng"], st
 Stop words sourced from https://github.com/guo-yong-zhi/StopWords.jl/blob/main/README.md.
 
 # Parameters
-- pipe: TokenizedNlpPipe
-- language: String = "en"
-- stop_words: Set{String} = Set{String}()
+- `pipe::TokenizedNlpPipe`
+- `language::String = "en"`
+- `stop_words::Set{String} = Set{String}()`
 
 # Returns
 - A new `TokenizedNlpPipe`struct with the stop words removed from the tokens.
 
-# Examples
+# Example Usage
 ## Removing stop words from a tokenized pipe (default stop words)
 ```jldoctest repl
 julia> NlpPipe(["This is a dinosaur"]) |> tokenize |> remove_stop_words |> pipe -> pipe.tokens

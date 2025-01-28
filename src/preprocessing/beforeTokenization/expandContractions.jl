@@ -233,13 +233,13 @@ end
 
 Expand contractions in the input text. This function expands common English contractions.
 
-# Arguments
-- input::NlpPipe: A `NlpPipe` object containing the corpus to expand contractions in.
+# Parameters
+- `input::NlpPipe`: A `NlpPipe` object containing the corpus to expand contractions in.
 
 # Returns
-- output::NlpPipe: A **new** `NlpPipe` object with the contractions expanded in the corpus.
+- A **new** `NlpPipe` object with the contractions expanded in the corpus.
 
-# Usage Example
+# Example Usage
 ```jldoctest repl
 julia> NlpPipe(["I'm happy", "I've got a cat"]) |> expand_contractions
 NlpPipe(["I am happy", "I have got a cat"], nothing)

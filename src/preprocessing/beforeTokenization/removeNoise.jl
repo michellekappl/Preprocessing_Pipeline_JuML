@@ -15,13 +15,13 @@ default_patterns::Vector{Pair{Regex, String}} = [
 
 Removes noise from the corpus. Noise includes HTML tags, URLs, email addresses, file paths, special characters, dates & times.
 
-# Arguments
-- pipe::NlpPipe: The `NlpPipe` object with a corpus to remove noise from
+# Parameters
+- `pipe::NlpPipe`: The `NlpPipe` object with a corpus to remove noise from
 
 # Returns
 - A new `NlpPipe` object with the noise removed from the corpus
 
-# Usage Examples
+# Example Usage
 ```jldoctest repl
 julia> NlpPipe(["<html>This is a test</html>"]) |> remove_noise
 NlpPipe(["This is a test"], nothing)

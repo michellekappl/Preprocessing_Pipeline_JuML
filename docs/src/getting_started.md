@@ -1,19 +1,12 @@
 # Installation in REPL
-Clone the repository and include the package in your Julia environment:
 
-```bash
-git clone git@github.com:michellekappl/Preprocessing_Pipeline_JuML.git
-cd path/to/dir/Preprocessing_Pipeline_JuML
+Install the package by running the following commands in Pkg
+
+```pkg
+activate --temp
+add https://github.com/michellekappl/Preprocessing_Pipeline_JuML
 ```
 
-Then, activate the package in Julia:
-
-```julia
-using Pkg
-Pkg.activate(".") 
-Pkg.instantiate()
-using Preprocessing_Pipeline_JuML
-```
 This will install the required dependencies and make the package available in your Julia REPL.
 
 # Quickstart
@@ -55,10 +48,6 @@ Get the tokenized representation:
 @info pipe.tokens # contains the tokens from before, but as numeric vectors
 @info pipe.vocabulary
 ```
-
-<!-- ## **License**
-
-This project is licensed under the MIT License. See the `LICENSE` file for details. -->
 
 # Run the tests
 To run the tests, open a Julia REPL, activate the project, and use the `]` key to enter the package management console. Then, execute `test` to run the test suite.

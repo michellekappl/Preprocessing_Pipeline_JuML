@@ -15,7 +15,7 @@ Create a bag of n-grams out of given TokenizedNlpPipe, with padding for shorter 
 julia> NlpPipe(["words one", "words two"]) |> tokenize |> bag_of_ngrams
 VectorizedNlpPipe{Int64}([[1 0 0; 0 1 0], [1 0 0; 0 0 1]], Dict("two" => 3, "one" => 2, "words" => 1), nothing)
 ```
----
+
 """
 function bag_of_ngrams(pipe::TokenizedNlpPipe; n::Int = 1)::VectorizedNlpPipe
     ngram_vocab = create_n_gram_dict(pipe, n)

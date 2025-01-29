@@ -2,13 +2,13 @@
 CurrentModule = Preprocessing_Pipeline_JuML
 ```
 
-# Preprocessing_Pipeline_JuML
+# Preprocessing\_Pipeline\_JuML
 
 [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://michellekappl.github.io/Preprocessing_Pipeline_JuML/stable/)
 [![Coverage](https://codecov.io/gh/michellekappl/Preprocessing_Pipeline_JuML/branch/main/graph/badge.svg)](https://codecov.io/gh/michellekappl/Preprocessing_Pipeline_JuML)
 [![Build Status](https://github.com/michellekappl/Preprocessing_Pipeline_JuML/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/michellekappl/Preprocessing_Pipeline_JuML/actions/workflows/CI.yml?query=branch%3Amain)
 
-**Preprocessing_Pipeline_JuML** is a Julia package for preprocessing text data in NLP pipelines.
+**Preprocessing\_Pipeline\_JuML** is a Julia package for preprocessing text data in NLP pipelines.
 
 ## Features
 - **Text preprocessing:** prepare textual data for machine learning tasks. Preprocessing steps include:

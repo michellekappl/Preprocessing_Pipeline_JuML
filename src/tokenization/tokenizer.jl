@@ -24,7 +24,7 @@ Tokenizes the documents in the corpus of the given `NlpPipe` object. The `level`
 julia> NlpPipe(["Hello world", "Julia is great"]) |> tokenize
 TokenizedNlpPipe(["Hello world", "Julia is great"], [["Hello", "world"], ["Julia", "is", "great"]], Set(["great", "Hello", "is", "Julia", "world"]), nothing)
 ```
----
+
 """
 function tokenize(pipe::NlpPipe, level::Symbol = :word)::TokenizedNlpPipe
     tokenized_corpus = map(document -> tokenize_document(document, level), pipe.corpus)

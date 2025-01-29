@@ -16,7 +16,7 @@ Compute the TF-IDF (Term Frequency-Inverse Document Frequency) representation of
 julia> NlpPipe(["words one", "words two"]) |> tokenize |> tf_idf
 VectorizedNlpPipe{Float64}([[0.0 0.0 0.0; 0.0 0.35 0.0], [0.0 0.0 0.0; 0.0 0.0 0.35]], Dict("two" => 3, "one" => 2, "words" => 1), nothing)
 ```
----
+
 """
 function tf_idf(pipe::TokenizedNlpPipe; tf_weighting::String = "relative term frequency", idf_weighting::String="inverse document frequency")::VectorizedNlpPipe
     vocab_dict = tf_idf_vocab(pipe)

@@ -13,10 +13,6 @@ VectorizedNlpPipe
  ## **Preprocessing before tokenization**
 
 ```@docs
-standardize_document
-```
-
-```@docs
 standardize_text
 ```
 ```@docs

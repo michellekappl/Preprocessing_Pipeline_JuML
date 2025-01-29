@@ -19,7 +19,7 @@ A structure for handling tokenized text data, maintaining a vocabulary and optio
 
 # Example Usage
 ---
-## Creating a pipe from an NlpPipe instance (usual way to do it)
+### Creating a pipe from an NlpPipe instance (usual way to do it)
 ```jldoctest repl
 julia> corpus = ["Hello world", "Julia is great"]
 2-element Vector{String}:
@@ -29,7 +29,7 @@ julia> tokenizedPipe = NlpPipe(corpus) |> tokenize
 TokenizedNlpPipe(["Hello world", "Julia is great"], [["Hello", "world"], ["Julia", "is", "great"]], Set(["great", "Hello", "is", "Julia", "world"]), nothing)
 ```
 ---
-## Creating a new pipe from scratch
+### Creating a new pipe from scratch
 ```jldoctest repl
 julia> corpus = ["Hello world", "Julia is great"]
 2-element Vector{String}:
@@ -53,7 +53,7 @@ TokenizedNlpPipe(["Hello world", "Julia is great"], [["Hello", "world"], ["Julia
 julia> pipe2 = TokenizedNlpPipe(pipe1; tokens=[["Hello"], ["Julia", "is"]])
 TokenizedNlpPipe(["Hello world", "Julia is great"], [["Hello"], ["Julia", "is"]], Set(["great", "Hello", "is", "Julia", "world"]), ["greeting", "statement"])
 ```
----
+
 """
 struct TokenizedNlpPipe
    corpus::Vector{String}

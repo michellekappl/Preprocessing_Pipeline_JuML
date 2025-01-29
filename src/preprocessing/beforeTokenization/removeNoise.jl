@@ -23,6 +23,7 @@ Replaces URLs, dates, timereferences, filepaths and e-mail addresses with corres
 - `NlpPipe`: A new pipe object with the noise removed from the corpus
 
 # Example Usage
+---
 ```jldoctest repl
 julia> NlpPipe(["<html>This is a test</html>"]) |> remove_noise
 NlpPipe(["This is a test"], nothing)
@@ -38,7 +39,7 @@ NlpPipe(["Today is <DATE>"], nothing)
 julia> NlpPipe(["<html>This is a test</html>"]) |> pipe -> remove_noise(pipe, replacement_patterns=[r"is a" => "🦖🫶"])
 NlpPipe(["<html>This 🦖🫶 test</html>"], nothing)
 ```
----
+
 """
 function remove_noise(pipe::NlpPipe; replacement_patterns::Vector{Pair{Regex, String}} = default_patterns)::NlpPipe
    corpus = pipe.corpus

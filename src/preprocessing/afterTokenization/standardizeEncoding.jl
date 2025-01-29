@@ -12,17 +12,19 @@ Standardizes the encoding of the tokens in the corpus.
 - `TokenizedNlpPipe`: A pipe object with the standardized corpus and the original labels.
 
 # Example Usage
-## Using the default encoding
+---
+### Using the default encoding
 ```jldoctest repl
 julia> NlpPipe(["Hello world 😊", "Julia is great"]) |> tokenize |> standardize_encoding
 TokenizedNlpPipe(["Hello world 😊", "Julia is great"], [["Hello", "world", "<UNK>"], ["Julia", "is", "great"]], Set(["great", "Hello", "is", "Julia", "<UNK>", "world"]), nothing)
 ```
-## Using the UTF-8 encoding
+---
+### Using the UTF-8 encoding
 ```jldoctest repl
 julia> NlpPipe(["Hello world 😊", "Julia is great"]) |> tokenize |> pipe -> standardize_encoding(pipe, encoding="UTF-8")
 TokenizedNlpPipe(["Hello world 😊", "Julia is great"], [["Hello", "world", "😊"], ["Julia", "is", "great"]], Set(["great", "Hello", "is", "Julia", "world", "😊"]), nothing)
 ```
----
+
 """
 function standardize_encoding(pipe::TokenizedNlpPipe; encoding::String = "ASCII")::TokenizedNlpPipe
     # Apply the processing function to each document

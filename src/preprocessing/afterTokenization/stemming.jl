@@ -3,9 +3,9 @@ using SnowballStemmer
 """
     stemming(pipe::TokenizedNlpPipe; language::String="english") -> TokenizedNlpPipe
  
-    Reduces words to their roots by removing pre- and suffixes. These are provided by [SnowballStemmer.jl](https://docs.juliahub.com/General/SnowballStemmer/stable/).
+Reduces words to their roots by removing pre- and suffixes. These are provided by [SnowballStemmer.jl](https://docs.juliahub.com/General/SnowballStemmer/stable/).
 
- # Arguments
+# Arguments
 - `pipe::TokenizedNlpPipe`: The input `TokenizedNlpPipe` object containing the tokens to be processed.
 - `language::String = "en"`: Defaults to english, other languages are possible
 
@@ -13,12 +13,13 @@ using SnowballStemmer
 - `TokenizedNlpPipe`: A new pipe object with the stemmed tokens.
 
 # Example Usage
-## Applying stemming with the default language (English)
+---
+### Applying stemming with the default language (English)
 ```jldoctest repl
 julia> NlpPipe(["This is a test for stemming"]) |> tokenize |> stemming
 TokenizedNlpPipe(["This is a test for stemming"], [["This", "is", "a", "test", "for", "stem"]], Set(["test", "is", "This", "stem", "a", "for"]), nothing)
 ```
----
+
 
 """
 function stemming(pipe::TokenizedNlpPipe; language::String="english")::TokenizedNlpPipe

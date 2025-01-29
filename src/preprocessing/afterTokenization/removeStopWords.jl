@@ -18,14 +18,15 @@ Stop words sourced from [StopWords.jl](https://github.com/guo-yong-zhi/StopWords
 
 
 # Example Usage
-## Removing stop words from a tokenized pipe (default stop words)
+---
+### Removing stop words from a tokenized pipe (default stop words)
 ```jldoctest repl
 julia> NlpPipe(["This is a dinosaur"]) |> tokenize |> remove_stop_words |> pipe -> pipe.tokens
 1-element Vector{Vector{String}}:
  ["This", "dinosaur"]
 ```
 ---
-## Using custom stop words
+### Using custom stop words
 ```jldoctest repl
 julia> NlpPipe(["This is a dinosaur"]) |> tokenize |> pipe -> remove_stop_words(pipe, stop_words=Set(["This", "dinosaur"])) |> pipe -> pipe.tokens
 1-element Vector{Vector{String}}:

@@ -7,7 +7,7 @@ Create a one-hot-encoding out of given TokenizedNlpPipe
 - `pipe::TokenizedNlpPipe`: The input `TokenizedNlpPipe` object containing the tokenized documents.
 
 # Returns
-- `VectorizedNlpPipe`: The output `VectorizedNlpPipe` object containing the one-hot-encoded documents.
+- `VectorizedNlpPipe`: The output pipe object containing the one-hot-encoded documents.
 
 # Example Usage
 ```jldoctest repl

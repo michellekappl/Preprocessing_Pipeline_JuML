@@ -20,7 +20,7 @@ Replaces URLs, dates, timereferences, filepaths and e-mail addresses with corres
 - `pipe::NlpPipe`: The `NlpPipe` object with a corpus to remove noise from
 
 # Returns
-- `NlpPipe`: A `NlpPipe` new object with the noise removed from the corpus
+- `NlpPipe`: A new pipe object with the noise removed from the corpus
 
 # Example Usage
 ```jldoctest repl

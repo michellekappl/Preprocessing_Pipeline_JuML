@@ -11,14 +11,13 @@ end
 """
     tokenize(pipe::NlpPipe, level::Symbol = :word) -> TokenizedNlpPipe
 
-Tokenizes the documents in the corpus of the given `NlpPipe` object. The `level` parameter can be set to `:word` or `:character`.
-
-# Parameters
+Tokenizes the documents in the corpus of the given `NlpPipe` object. The `level` parameter sets depth of tokenizing.
+# Arguments
 - `pipe::NlpPipe`: An `NlpPipe` object containing a corpus of documents.
 - `level::Symbol`: The tokenization level, either `:word` (default) or `:character`.
 
 # Returns
-- `TokenizedNlpPipe`: A new `TokenizedNlpPipe` object with the tokenized documents.
+- `TokenizedNlpPipe`: A new pipe object with the tokenized documents.
 
 # Example Usage
 ```jldoctest repl

@@ -9,7 +9,7 @@ Standardizes the encoding of the tokens in the corpus.
 - `encoding::String`: The target encoding, either "ASCII" or "UTF-8" (default is "ASCII").
 
 # Returns
-- `TokenizedNlpPipe`: A `TokenizedNlpPipe` object with the standardized corpus and the original labels.
+- `TokenizedNlpPipe`: A pipe object with the standardized corpus and the original labels.
 
 # Example Usage
 ## Using the default encoding

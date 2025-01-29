@@ -7,7 +7,7 @@ Create a bag-of-words-encoding out of given TokenizedNlpPipe
 - `pipe::TokenizedNlpPipe`: The input `TokenizedNlpPipe` object containing the tokenized documents.
 
 # Returns
-- `VectorizedNlpPipe`: A new `VectorizedNlpPipe` object with the bag-of-words vectors.
+- `VectorizedNlpPipe`: A new pipe object with the bag-of-words vectors.
 
 # Example Usage
 ```jldoctest repl

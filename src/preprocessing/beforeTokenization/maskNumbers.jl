@@ -3,12 +3,12 @@
 
 Replaces all numbers in the text of the given `NlpPipe` corpus with a specified string.
 
-# Parameters
+# Arguments
 - `pipe::NlpPipe`: The input `NlpPipe` object containing the corpus to be processed.
 - `replace_with::String`: The string to replace numbers with. Defaults to "<NUM>".
 
 # Returns
-- A new `NlpPipe` object with the numbers in the corpus replaced by the specified string.
+- `NlpPipe`: A pipe object with the numbers in the corpus replaced by the specified string.
 
 # Example Usage
 ```jldoctest repl

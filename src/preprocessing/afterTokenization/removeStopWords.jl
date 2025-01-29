@@ -14,7 +14,7 @@ Stop words sourced from [StopWords.jl](https://github.com/guo-yong-zhi/StopWords
 - `stop_words::Set{String} = Set{String}()`: Defaults to `StopWords.jl`-stopwords set, possible to set own stopword-set.
 
 # Returns
-- `TokenizedNlpPipe`: A new `TokenizedNlpPipe` object with the stop words removed from the tokens.
+- `TokenizedNlpPipe`: A new pipe object with the stop words removed from the tokens.
 
 
 # Example Usage

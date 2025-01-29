@@ -10,7 +10,7 @@ using SnowballStemmer
 - `language::String = "en"`: Defaults to english, other languages are possible
 
 # Returns
-- `TokenizedNlpPipe`: A new `TokenizedNlpPipe` object with the stemmed tokens.
+- `TokenizedNlpPipe`: A new pipe object with the stemmed tokens.
 
 # Example Usage
 ## Applying stemming with the default language (English)

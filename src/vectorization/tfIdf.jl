@@ -3,13 +3,13 @@
 
 Compute the TF-IDF (Term Frequency-Inverse Document Frequency) representation of the tokenized documents in the given `pipe`.
 
-# Parameters
+# Arguments
 - `pipe::TokenizedNlpPipe`: A pipeline containing tokenized documents.
 - `tf_weighting::String`: The term frequency weighting scheme. Options are "relative term frequency" (default) and "raw term frequency".
 - `idf_weighting::String`: The inverse document frequency weighting scheme. Options are "inverse document frequency" (default) and "smooth inverse document frequency".
 
 # Returns
-- A new pipeline containing the TF-IDF vectorized representation of the documents.
+- `VectorizedNlpPipe`: A pipe object containing the TF-IDF vectorized representation of the documents.
 
 # Example Usage
 ```julia

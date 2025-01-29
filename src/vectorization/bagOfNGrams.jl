@@ -5,7 +5,7 @@ Create a bag of n-grams out of given TokenizedNlpPipe, with padding for shorter 
 
 # Arguments
 - `pipe::TokenizedNlpPipe`: The input `TokenizedNlpPipe` object containing the tokenized documents.
-- `n::Int`: The n-gram size. Defaults to 1.
+- `n::Int: The n-gram size. Defaults to 1.
 
 # Returns
 - `VectorizedNlpPipe`: A new `VectorizedNlpPipe` object with the n-gram vectors.
@@ -13,7 +13,7 @@ Create a bag of n-grams out of given TokenizedNlpPipe, with padding for shorter 
 # Example Usage
 ```jldoctest repl
 julia> NlpPipe(["words one", "words two"]) |> tokenize |> bag_of_ngrams
-VectorizedNlpPipe(Matrix{<:Union{Float64, Int64}}[[1 0 0; 0 1 0], [1 0 0; 0 0 1]], Dict("two" => 3, "one" => 2, "words" => 1), nothing)
+VectorizedNlpPipe{Int64}([[1 0 0; 0 1 0], [1 0 0; 0 0 1]], Dict("two" => 3, "one" => 2, "words" => 1), nothing)
 ```
 ---
 """
@@ -42,6 +42,7 @@ export bag_of_ngrams
 
 Create a dictionary of ngrams out of given TokenizedNlpPipe.
 
+# Example Usage
 # Example Usage
 ```
 julia> pipe = TokenizedNlpPipe([["one", "sentence", "sample"],["two", "sentence", "sample"]])

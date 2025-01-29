@@ -53,7 +53,7 @@ struct NlpPipe
    labels::Union{Vector{String}, Nothing}
 
    function NlpPipe(corpus::Vector{String}, labels::Union{Vector{String}, Nothing})
-      if labels !== nothing && length(corpus) != length(labels)
+      if !isnothing(labels) && length(corpus) != length(labels)
          throw(ArgumentError("The number of documents and labels must be the same."))
       end
 
@@ -65,10 +65,7 @@ struct NlpPipe
    NlpPipe(corpus::String) = new([corpus], nothing)  # Allow initializing with a single string
 
    function NlpPipe(previousPipe::NlpPipe; corpus::Vector{String} = previousPipe.corpus, labels::Union{Vector{String}, Nothing} = previousPipe.labels)
-      if labels !== nothing && length(corpus) != length(labels)
-         throw(ArgumentError("The number of documents and labels must be the same."))
-      end
-
+      # no need to check if corpus and labels match, as it's already done in the initial constructor
       new(corpus, labels)
    end
 end

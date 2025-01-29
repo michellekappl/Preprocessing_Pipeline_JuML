@@ -20,6 +20,7 @@ CurrentModule = Preprocessing_Pipeline_JuML
   - applied *after* Tokenization:
     - stopword removal
     - stemming
+    - standardization of token encoding
 - **Tokenization:** Split text into words or characters.
 - **Vectorization:** Transform text into machine-learning-compatible vector representations
   - one-hot encoding

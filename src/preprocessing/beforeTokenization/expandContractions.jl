@@ -1,6 +1,6 @@
 # Contractions taken from the Wikipedia article on List of English contractions
 # (https://en.wikipedia.org/wiki/Wikipedia:List_of_English_contractions)
-contractions = Dict(
+const contractions = Dict(
     "a'ight" => "alright",
     "ain't" => "am not",
     "amn't" => "am not",
@@ -234,12 +234,13 @@ end
 Expand contractions in the input text. This function expands common English contractions.
 
 # Arguments
-- `pipe::NlpPipe``: A `NlpPipe` object containing the corpus to expand contractions in.
+- `pipe::NlpPipe`: A `NlpPipe` object containing the corpus to expand contractions in.
 
 # Returns
-- `NlpPipe``: A new `NlpPipe` object with the contractions expanded in the corpus.
+- `NlpPipe`: A new `NlpPipe` object with the contractions expanded in the corpus.
 
 # Example Usage
+
 ```jldoctest repl
 julia> NlpPipe(["I'm happy", "I've got a cat"]) |> expand_contractions
 NlpPipe(["I am happy", "I have got a cat"], nothing)

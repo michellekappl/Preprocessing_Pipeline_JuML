@@ -1,4 +1,4 @@
-using StopWords
+using StopWords: stopwords
 
 """
     remove_stop_words(pipe::TokenizedNlpPipe; language::String="en", stop_words::Set{String}=Set{String}()) -> TokenizedNlpPipe
@@ -15,6 +15,7 @@ Stop words sourced from [StopWords.jl](https://github.com/guo-yong-zhi/StopWords
 
 # Returns
 - `TokenizedNlpPipe`: A new `TokenizedNlpPipe` object with the stop words removed from the tokens.
+
 
 # Example Usage
 ## Removing stop words from a tokenized pipe (default stop words)
@@ -34,6 +35,6 @@ julia> NlpPipe(["This is a dinosaur"]) |> tokenize |> pipe -> remove_stop_words(
 function remove_stop_words(pipe::TokenizedNlpPipe; language::String="en", stop_words::Set{String}=Set{String}())::TokenizedNlpPipe
     stopwords_set = length(stop_words) > 0 ? stop_words : stopwords[language]
 
-    tokens = map(document -> filter(token -> !(token in stopwords_set), document), pipe.tokens)
+    tokens = map(filter(!in(stopwords_set)), pipe.tokens)
     return TokenizedNlpPipe(pipe.corpus, tokens, pipe.labels)
 end

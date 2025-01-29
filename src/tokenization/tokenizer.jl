@@ -13,7 +13,7 @@ end
 
 Tokenizes the documents in the corpus of the given `NlpPipe` object. The `level` parameter can be set to `:word` or `:character`.
 
-# Arguments
+# Parameters
 - `pipe::NlpPipe`: An `NlpPipe` object containing a corpus of documents.
 - `level::Symbol`: The tokenization level, either `:word` (default) or `:character`.
 

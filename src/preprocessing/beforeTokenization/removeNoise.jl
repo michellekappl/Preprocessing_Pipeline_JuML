@@ -16,7 +16,7 @@ default_patterns::Vector{Pair{Regex, String}} = [
 Removes noise from the corpus. Noise includes HTML tags, URLs, email addresses, file paths, special characters, dates & times.
 Replaces URLs, dates, timereferences, filepaths and e-mail addresses with corresponding replacement tokens.
 
-# Parameters
+# Arguments
 - `pipe::NlpPipe`: The `NlpPipe` object with a corpus to remove noise from
 
 # Returns

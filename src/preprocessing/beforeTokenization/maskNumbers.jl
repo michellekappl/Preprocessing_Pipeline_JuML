@@ -8,7 +8,7 @@ Replaces all numbers in the text of the given `NlpPipe` corpus with a specified 
 - `replace_with::String`: The string to replace numbers with. Defaults to "<NUM>".
 
 # Returns
-- `NlpPipe`: A pipe object with the numbers in the corpus replaced by the specified string.
+- A new `NlpPipe` object with the numbers in the corpus replaced by the specified string.
 
 # Example Usage
 ```jldoctest repl

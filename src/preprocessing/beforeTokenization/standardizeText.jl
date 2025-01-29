@@ -39,11 +39,11 @@ end
 
 Applies the `standardize_document` function to each document in the corpus of the given `NlpPipe` object.
 
-# Arguments
+# Parameters
 - `pipe::NlpPipe`: An `NlpPipe` object containing a corpus and associated labels.
 
 # Returns
-- `NlpPipe`: A pipe object with the standardized corpus and the original labels.
+- A new `NlpPipe` object with the standardized corpus and the original labels.
 
 # Example Usage
 ```jldoctest repl

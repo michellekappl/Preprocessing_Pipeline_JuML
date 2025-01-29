@@ -15,11 +15,11 @@ Reduces words to their roots by removing pre- and suffixes. These are provided b
 # Example Usage
 ---
 ### Applying stemming with the default language (English)
+
 ```jldoctest repl
 julia> NlpPipe(["This is a test for stemming"]) |> tokenize |> stemming
 TokenizedNlpPipe(["This is a test for stemming"], [["This", "is", "a", "test", "for", "stem"]], Set(["test", "is", "This", "stem", "a", "for"]), nothing)
 ```
-
 
 """
 function stemming(pipe::TokenizedNlpPipe; language::String="english")::TokenizedNlpPipe

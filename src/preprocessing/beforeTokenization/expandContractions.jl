@@ -233,11 +233,11 @@ end
 
 Expand contractions in the input text. This function expands common English contractions.
 
-# Arguments
-- `pipe::NlpPipe`: A `NlpPipe` object containing the corpus to expand contractions in.
+# Parameters
+- `input::NlpPipe`: A `NlpPipe` object containing the corpus to expand contractions in.
 
 # Returns
-- `NlpPipe`: A new pipe object with the contractions expanded in the corpus.
+- A **new** `NlpPipe` object with the contractions expanded in the corpus.
 
 # Example Usage
 

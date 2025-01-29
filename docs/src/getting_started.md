@@ -76,6 +76,7 @@ using Preprocessing_Pipeline_JuML # hide
 pipe = NlpPipe(test_corpus) |> remove_noise |> tokenize |> tf_idf # hide
 @info pipe.vocabulary
 ```
+
 **6. (*optional*) View the labels:**
 ```@example
 test_corpus = [ # hide

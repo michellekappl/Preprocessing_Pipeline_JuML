@@ -8,6 +8,7 @@ For example, to get the stop words for English, you can use stopwords["eng"], st
 
 Stop words sourced from [StopWords.jl](https://github.com/guo-yong-zhi/StopWords.jl/blob/main/README.md).
 
+
 # Arguments
 - `pipe::TokenizedNlpPipe`: The input `TokenizedNlpPipe` object containing the tokens to be processed.
 - `language::String = "en"`: Defaults to english, other languages are possible (see linked github-page above)
@@ -16,10 +17,10 @@ Stop words sourced from [StopWords.jl](https://github.com/guo-yong-zhi/StopWords
 # Returns
 - `TokenizedNlpPipe`: A new pipe object with the stop words removed from the tokens.
 
-
 # Example Usage
 ---
 ### Removing stop words from a tokenized pipe (default stop words)
+
 ```jldoctest repl
 julia> NlpPipe(["This is a dinosaur"]) |> tokenize |> remove_stop_words |> pipe -> pipe.tokens
 1-element Vector{Vector{String}}:

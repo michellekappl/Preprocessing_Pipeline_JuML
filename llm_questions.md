@@ -214,3 +214,120 @@ In legal documents: <CASE_NUMBER>, <LAW_SECTION>.
 In medical records: <PATIENT_ID>, <DIAGNOSIS>.
 In technical logs: <IP_ADDRESS>, <ERROR_CODE>.
 Would you like guidance on implementing a specific set of masks for your use case?
+
+- **Q:**
+create docs like this:
+
+"""
+    remove_stop_words(pipe::TokenizedNlpPipe; language::String="en", stop_words::Set{String}=Set{String}()) -> TokenizedNlpPipe
+
+Removes predefined stopwords. You can access the stop words for a given language using the language name or ISO 639 code. 
+For example, to get the stop words for English, you can use stopwords["eng"], stopwords["en"], or stopwords["English"].
+
+Stop words sourced from https://github.com/guo-yong-zhi/StopWords.jl/blob/main/README.md.
+
+# Parameters
+- pipe: TokenizedNlpPipe
+- language: String = "en"
+- stop_words: Set{String} = Set{String}()
+
+# Returns
+- A new TokenizedNlpPipestruct with the stop words removed from the tokens.
+
+# Examples
+## Removing stop words from a tokenized pipe (default stop words)
+jldoctest repl
+julia> NlpPipe(["This is a dinosaur"]) |> tokenize |> remove_stop_words |> pipe -> pipe.tokens
+1-element Vector{Vector{String}}:
+ ["This", "dinosaur"]
+
+---
+## Using custom stop words
+jldoctest repl
+julia> NlpPipe(["This is a dinosaur"]) |> tokenize |> pipe -> remove_stop_words(pipe, stop_words=Set(["This", "dinosaur"])) |> pipe -> pipe.tokens
+1-element Vector{Vector{String}}:
+ ["is", "a"]
+
+"""
+for this code:
+
+using SnowballStemmer
+
+function stemming(pipe::TokenizedNlpPipe; language::String="english")::TokenizedNlpPipe
+    #create stemmer specified language
+    stemmer = Stemmer(language)
+    
+    #do stemming to each word from input
+    stemmed_data = zeros(Vector{String}, pipe.tokens.length)
+    for doc in pipe.tokens
+        stemmed_doc = [stem(stemmer, word) for word in doc]
+        push!(stemmed_data, stemmed_doc)
+    end
+    
+    return TokenizedNlpPipe(pipe.corpus, stemmed_data, pipe.labels)
+end
+
+export stemming
+
+- **A:** 
+Here's a documentation block for the provided stemming function, following the style you specified:
+"""
+    stemming(pipe::TokenizedNlpPipe; language::String="english") -> TokenizedNlpPipe
+
+Applies stemming to the tokens in the provided `TokenizedNlpPipe` based on the specified language.
+
+Stemming reduces words to their base or root form (e.g., "running" to "run"). This function uses the Snowball stemmer library, which supports multiple languages.
+
+# Parameters
+- `pipe`: TokenizedNlpPipe  
+  The input pipeline containing tokenized data.
+- `language`: String = "english"  
+  The language to use for stemming. Supported languages depend on the Snowball stemmer library.
+
+# Returns
+- A new `TokenizedNlpPipe` struct with the tokens replaced by their stemmed versions.
+
+# Examples
+## Applying stemming with the default language (English)
+```jldoctest repl
+julia> NlpPipe(["This is a test for stemming"]) |> tokenize |> stemming |> pipe -> pipe.tokens
+1-element Vector{Vector{String}}:
+ ["this", "is", "a", "test", "for", "stem"]
+Specifying a different language for stemming
+
+julia> NlpPipe(["Cela teste le stemming"]) |> tokenize |> pipe -> stemming(pipe, language="french") |> pipe -> pipe.tokens
+1-element Vector{Vector{String}}:
+ ["cel", "test", "le", "stem"]
+
+- **Q:** 
+i get this warning with julia
+WARNING: Method definition get_vocab_dict(Any) in module Preprocessing_Pipeline_JuML at /home/lad/test/Preprocessing_Pipeline_JuML/src/vectorization/vocabDict.jl:1 overwritten on the same line (check for duplicate calls to include).eline_JuML
+- **A:**
+This warning means that the method get_vocab_dict is being defined more than once in your Julia code on the same line in the specified file. This often happens when the file containing the method is included multiple times using include.
+Why this happens
+The include function in Julia loads and executes the content of a file. If you call include("file.jl") multiple times in your code, it can lead to method redefinition warnings, as the functions or methods from the file are redefined each time.
+How to fix it
+Check for duplicate include calls:
+Ensure that the file vocabDict.jl is included only once in your project. Look for duplicate include statements in your code, such as:
+include("vectorization/vocabDict.jl")
+If you find multiple calls, remove the duplicates.
+Use modules properly:
+Wrap your code in vocabDict.jl inside a module. This way, even if the file is included multiple times, the function definitions won't clash.
+module VocabDict
+    export get_vocab_dict
+
+    function get_vocab_dict(arg)
+        # Your function definition
+    end
+end
+You can then use:
+using .VocabDict
+get_vocab_dict(arg)
+Avoid redundant includes during development:
+If you're including files interactively in a Julia REPL or Jupyter notebook for testing, avoid repeatedly calling include on the same file. Instead, consider using Revise.jl for live-reloading changes:
+using Revise
+include("vectorization/vocabDict.jl")
+Clean up project structure:
+Ensure your project is well-structured with a Project.toml file, and place reusable components in dedicated modules or packages. This reduces the need for repeated include calls.
+Verifying the Fix
+After making these changes, restart your Julia session and run the script again. The warning should no longer appear.

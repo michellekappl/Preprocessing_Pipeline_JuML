@@ -13,14 +13,14 @@ end
 
 Tokenizes the documents in the corpus of the given `NlpPipe` object. The `level` parameter can be set to `:word` or `:character`.
 
-# Arguments
+# Parameters
 - `pipe::NlpPipe`: An `NlpPipe` object containing a corpus of documents.
 - `level::Symbol`: The tokenization level, either `:word` (default) or `:character`.
 
 # Returns
 - `TokenizedNlpPipe`: A new `TokenizedNlpPipe` object with the tokenized documents.
 
-# Usage Example
+# Example Usage
 ```jldoctest repl
 julia> NlpPipe(["Hello world", "Julia is great"]) |> tokenize
 TokenizedNlpPipe(["Hello world", "Julia is great"], [["Hello", "world"], ["Julia", "is", "great"]], Set(["great", "Hello", "is", "Julia", "world"]), nothing)

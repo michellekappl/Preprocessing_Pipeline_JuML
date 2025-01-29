@@ -3,18 +3,18 @@
 
 Compute the TF-IDF (Term Frequency-Inverse Document Frequency) representation of the tokenized documents in the given `pipe`.
 
-# Arguments
+# Parameters
 - `pipe::TokenizedNlpPipe`: A pipeline containing tokenized documents.
 - `tf_weighting::String`: The term frequency weighting scheme. Options are "relative term frequency" (default) and "raw term frequency".
 - `idf_weighting::String`: The inverse document frequency weighting scheme. Options are "inverse document frequency" (default) and "smooth inverse document frequency".
 
 # Returns
-- `VectorizedNlpPipe`: A new pipeline containing the TF-IDF vectorized representation of the documents.
+- A new pipeline containing the TF-IDF vectorized representation of the documents.
 
-# Usage Examples
+# Example Usage
 ```julia
 julia> NlpPipe(["words one", "words two"]) |> tokenize |> tf_idf
-VectorizedNlpPipe(Matrix{<:Union{Float64, Int64}}[[0.0 0.0 0.0; 0.0 0.35 0.0], [0.0 0.0 0.0; 0.0 0.0 0.35]], Dict("two" => 3, "one" => 2, "words" => 1), nothing)
+VectorizedNlpPipe{Float64}([[0.0 0.0 0.0; 0.0 0.35 0.0], [0.0 0.0 0.0; 0.0 0.0 0.35]], Dict("two" => 3, "one" => 2, "words" => 1), nothing)
 ```
 ---
 """
@@ -42,7 +42,7 @@ end
 
 Compute the term frequency (TF) matrix for a given document.
 
-# Arguments
+# Parameters
 - `doc_i::Int`: The index of the document in the corpus.
 - `doc::Vector{String}`: The tokenized document.
 - `vocab_dict::Dict{String, NamedTuple{(:index, :doc_dict)}}`: The vocabulary dictionary with term indices and document frequency information.
@@ -70,7 +70,7 @@ end
 
 Compute the inverse document frequency (IDF) matrix for a given document.
 
-# Arguments
+# Parameters
 - `doc::Vector{String}`: The tokenized document.
 - `vocab_dict::Dict{String, NamedTuple{(:index, :doc_dict)}}`: The vocabulary dictionary with term indices and document frequency information.
 - `total_docs::Int`: The total number of documents in the corpus.
@@ -99,7 +99,7 @@ end
 
 Generate the vocabulary dictionary with term indices and document frequency information from the tokenized documents in the given `pipe`.
 
-# Arguments
+# Parameters
 - `pipe::TokenizedNlpPipe`: A pipeline containing tokenized documents.
 
 # Returns

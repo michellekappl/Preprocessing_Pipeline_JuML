@@ -10,7 +10,7 @@ include("preprocessing/beforeTokenization/removeNoise.jl")
 include("preprocessing/beforeTokenization/maskNumbers.jl")
 include("preprocessing/beforeTokenization/expandContractions.jl")
 include("preprocessing/beforeTokenization/standardizeText.jl")
-
+include("preprocessing/afterTokenization/stemming.jl")
 include("preprocessing/afterTokenization/standardizeEncoding.jl")
 include("preprocessing/afterTokenization/removeStopWords.jl")
 
@@ -18,6 +18,7 @@ include("vectorization/oneHotEncoding.jl")
 include("vectorization/bagOfWords.jl")
 include("vectorization/bagOfNGrams.jl")
 include("vectorization/tfIdf.jl")
+include("vectorization/vocabDict.jl")
 
 export 
     # Pipe Structs
@@ -36,6 +37,7 @@ export
     remove_stop_words, 
     standardize_text,
     standardize_encoding,
+    stemming,
 
     # Vectorization
     bag_of_ngrams,

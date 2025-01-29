@@ -36,6 +36,13 @@ tokenize
 ```@docs
 remove_stop_words
 ```
+```@docs
+stemming
+```
+```@docs
+standardize_encoding
+```
+
 
 ## **Vectorization**
 

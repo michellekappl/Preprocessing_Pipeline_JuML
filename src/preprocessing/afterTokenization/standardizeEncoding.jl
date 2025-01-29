@@ -4,12 +4,12 @@
 
 Standardizes the encoding of the tokens in the corpus.
 
-# Parameters
+# Arguments
 - `pipe::TokenizedNlpPipe`: A `TokenizedNlpPipe` object containing a corpus and associated labels.
 - `encoding::String`: The target encoding, either "ASCII" or "UTF-8" (default is "ASCII").
 
 # Returns
-- A new `TokenizedNlpPipe` object with the standardized corpus and the original labels.
+- `TokenizedNlpPipe`: A `TokenizedNlpPipe` object with the standardized corpus and the original labels.
 
 # Example Usage
 ## Using the default encoding

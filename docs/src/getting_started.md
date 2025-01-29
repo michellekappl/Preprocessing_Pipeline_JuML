@@ -17,7 +17,7 @@ using Preprocessing_Pipeline_JuML
 
 **2. Prepare a test corpus:**
 Define a set of noisy text samples for preprocessing:
-```julia
+```@example
 test_corpus = [
    "Hello <b>world</b>! Visit http://example.com.",
    "Email me: test@example.com or call +123-456-7890.",
@@ -30,23 +30,65 @@ test_corpus = [
 
 **3. Build your pipeline:**
 
-```julia
-pipe = NlpPipe(test_corpus) |> remove_noise |> tokenize |> one_hot_encoding
+```@example
+test_corpus = [ # hide
+   "Hello <b>world</b>! Visit http://example.com.", # hide
+   "Email me: test@example.com or call +123-456-7890.", # hide
+   "Today is 12/25/2024, time now: 10:30AM.", # hide
+   "My file is at C:\\Users\\JohnDoe\\Documents\\file.txt.", # hide
+   "Check this out: www.awesome-website.org/about-us.html!", # hide
+   "#JuliaLang is great. Follow us @JuliaNLP." # hide
+] # hide
+using Preprocessing_Pipeline_JuML # hide
+pipe = NlpPipe(test_corpus) |> remove_noise |> tokenize |> tf_idf
 ```
 
-**4. Inspect the pipeline outputs:**
+**4. View the vectors produced by the pipeline:**
 
 Get the tokenized representation:
 
-```julia
-@info pipe.tokens # contains documents split into single tokens
+```@example
+test_corpus = [ # hide
+   "Hello <b>world</b>! Visit http://example.com.", # hide
+   "Email me: test@example.com or call +123-456-7890.", # hide
+   "Today is 12/25/2024, time now: 10:30AM.", # hide
+   "My file is at C:\\Users\\JohnDoe\\Documents\\file.txt.", # hide
+   "Check this out: www.awesome-website.org/about-us.html!", # hide
+   "#JuliaLang is great. Follow us @JuliaNLP." # hide
+] # hide
+using Preprocessing_Pipeline_JuML # hide
+pipe = NlpPipe(test_corpus) |> remove_noise |> tokenize |> tf_idf # hide
+@info pipe.tokens 
 ```
 
-**5. View the vectors and vocabulary generated during vectorization:**
+**5. View the vocabulary generated during vectorization:**
 
-```julia
-@info pipe.tokens # contains the tokens from before, but as numeric vectors
+```@example
+test_corpus = [ # hide
+   "Hello <b>world</b>! Visit http://example.com.", # hide
+   "Email me: test@example.com or call +123-456-7890.", # hide
+   "Today is 12/25/2024, time now: 10:30AM.", # hide
+   "My file is at C:\\Users\\JohnDoe\\Documents\\file.txt.", # hide
+   "Check this out: www.awesome-website.org/about-us.html!", # hide
+   "#JuliaLang is great. Follow us @JuliaNLP." # hide
+] # hide
+using Preprocessing_Pipeline_JuML # hide
+pipe = NlpPipe(test_corpus) |> remove_noise |> tokenize |> tf_idf # hide
 @info pipe.vocabulary
+```
+**6. (*optional*) View the labels:**
+```@example
+test_corpus = [ # hide
+   "Hello <b>world</b>! Visit http://example.com.", # hide
+   "Email me: test@example.com or call +123-456-7890.", # hide
+   "Today is 12/25/2024, time now: 10:30AM.", # hide
+   "My file is at C:\\Users\\JohnDoe\\Documents\\file.txt.", # hide
+   "Check this out: www.awesome-website.org/about-us.html!", # hide
+   "#JuliaLang is great. Follow us @JuliaNLP." # hide
+] # hide
+using Preprocessing_Pipeline_JuML # hide
+pipe = NlpPipe(test_corpus) |> remove_noise |> tokenize |> tf_idf # hide
+@info pipe.labels
 ```
 
 # Run the tests

@@ -24,30 +24,29 @@ A simple pipeline structure for handling text data (corpus) and corresponding la
 
 # Example Usage
 ---
-### Creating a pipe from a corpus with multiple documents, including labels
+## Creating a pipe from a corpus with multiple documents, including labels
 ```jldoctest repl
 julia> pipe1 = NlpPipe(["document1", "document2"], ["label1", "label2"])
 NlpPipe(["document1", "document2"], ["label1", "label2"])
 ```
 ---
-### Creating a pipe from a corpus without labels
+## Creating a pipe from a corpus without labels
 ```jldoctest repl
 julia> pipe2 = NlpPipe(["document3"])
 NlpPipe(["document3"], nothing)
 ```
 ---
-### Creating a pipe from a single string corpus 
+## Creating a pipe from a single string corpus
 ```jldoctest repl
 julia> pipe3 = NlpPipe("single document") 
 NlpPipe(["single document"], nothing)
 ```
 ---
-### Creating a new pipe from an existing one with modified corpus and labels
+## Creating a new pipe from an existing one with modified corpus and labels
 ```jldoctest repl
 julia> NlpPipe(pipe1, corpus=["new_doc1", "new_doc2"])
 NlpPipe(["new_doc1", "new_doc2"], ["label1", "label2"])
 ```
-
 """
 struct NlpPipe
    corpus::Vector{String}

@@ -10,7 +10,7 @@ TokenizedNlpPipe
 VectorizedNlpPipe
 ```
 
- ## **Preprocessing before tokenization**
+## **Preprocessing before tokenization**
 
 ```@docs
 standardize_text

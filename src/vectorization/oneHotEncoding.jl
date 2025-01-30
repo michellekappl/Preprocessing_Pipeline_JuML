@@ -3,7 +3,7 @@
 
 Create a one-hot-encoding out of given TokenizedNlpPipe
 
-# Arguments
+# Parameters
 - `pipe::TokenizedNlpPipe`: The input `TokenizedNlpPipe` object containing the tokenized documents.
 
 # Returns

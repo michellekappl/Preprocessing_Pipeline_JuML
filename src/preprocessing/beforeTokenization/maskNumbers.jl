@@ -3,7 +3,7 @@
 
 Replaces all numbers in the text of the given `NlpPipe` corpus with a specified string.
 
-# Arguments
+# Parameters
 - `pipe::NlpPipe`: The input `NlpPipe` object containing the corpus to be processed.
 - `replace_with::String`: The string to replace numbers with. Defaults to "<NUM>".
 

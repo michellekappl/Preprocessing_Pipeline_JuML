@@ -3,7 +3,7 @@
 
 Create a bag of n-grams out of given TokenizedNlpPipe, with padding for shorter documents.
 
-# Arguments
+# Parameters
 - `pipe::TokenizedNlpPipe`: The input `TokenizedNlpPipe` object containing the tokenized documents.
 - `n::Int: The n-gram size. Defaults to 1.
 

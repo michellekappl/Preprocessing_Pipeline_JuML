@@ -131,16 +131,16 @@ Pkg.add("SnowballStemmer")
 
 using SnowballStemmer
 
-# Create an English stemmer
+##### Create an English stemmer
 stemmer = Stemmer("English")
 
-# Sample input
+##### Sample input
 words = ["running", "jumps", "happily", "cats"]
 
-# Apply stemming to each word in the vector
+##### Apply stemming to each word in the vector
 stemmed_words = [stemmer(word) for word in words]
 
-# Display the stemmed words
+##### Display the stemmed words
 println(stemmed_words)  # Output: ["run", "jump", "happili", "cat"]
 
 Explanation:
@@ -226,23 +226,23 @@ For example, to get the stop words for English, you can use stopwords["eng"], st
 
 Stop words sourced from https://github.com/guo-yong-zhi/StopWords.jl/blob/main/README.md.
 
-# Parameters
+###### Parameters
 - pipe: TokenizedNlpPipe
 - language: String = "en"
 - stop_words: Set{String} = Set{String}()
 
-# Returns
+###### Returns
 - A new TokenizedNlpPipestruct with the stop words removed from the tokens.
 
-# Examples
-## Removing stop words from a tokenized pipe (default stop words)
+###### Examples
+###### Removing stop words from a tokenized pipe (default stop words)
 jldoctest repl
 julia> NlpPipe(["This is a dinosaur"]) |> tokenize |> remove_stop_words |> pipe -> pipe.tokens
 1-element Vector{Vector{String}}:
  ["This", "dinosaur"]
 
 ---
-## Using custom stop words
+####### Using custom stop words
 jldoctest repl
 julia> NlpPipe(["This is a dinosaur"]) |> tokenize |> pipe -> remove_stop_words(pipe, stop_words=Set(["This", "dinosaur"])) |> pipe -> pipe.tokens
 1-element Vector{Vector{String}}:
@@ -278,17 +278,17 @@ Applies stemming to the tokens in the provided `TokenizedNlpPipe` based on the s
 
 Stemming reduces words to their base or root form (e.g., "running" to "run"). This function uses the Snowball stemmer library, which supports multiple languages.
 
-# Parameters
+###### Parameters
 - `pipe`: TokenizedNlpPipe  
   The input pipeline containing tokenized data.
 - `language`: String = "english"  
   The language to use for stemming. Supported languages depend on the Snowball stemmer library.
 
-# Returns
+###### Returns
 - A new `TokenizedNlpPipe` struct with the tokens replaced by their stemmed versions.
 
-# Examples
-## Applying stemming with the default language (English)
+###### Examples
+###### Applying stemming with the default language (English)
 ```jldoctest repl
 julia> NlpPipe(["This is a test for stemming"]) |> tokenize |> stemming |> pipe -> pipe.tokens
 1-element Vector{Vector{String}}:

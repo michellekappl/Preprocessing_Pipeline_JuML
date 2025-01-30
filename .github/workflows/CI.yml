@@ -62,12 +62,18 @@ jobs:
           using Pkg
           Pkg.develop(PackageSpec(path=pwd()))
           Pkg.instantiate()
+          - name: Set environment variables
+          run: echo "DATADEPS_ALWAYS_ACCEPT=true" >> $GITHUB_ENV
+      - name: Pre-accept DataDeps terms
+        shell: julia --project=docs --color=yes {0}
+        run: |
+          using DataDeps
+          DataDeps.force_accept()
       - name: Download SMS Spam Dataset
         shell: julia --project=docs --color=yes {0}
         run: |
-            using MLDatasets
-            data = SMSSpamCollection()
-
+          using MLDatasets
+          data = SMSSpamCollection()
       - uses: julia-actions/julia-buildpkg@v1
       - uses: julia-actions/julia-docdeploy@v1
         env:

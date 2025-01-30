@@ -23,11 +23,11 @@ jobs:
       - uses: julia-actions/cache@v2
       - name: Install dependencies
         run: julia --project=docs/ -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd())); Pkg.instantiate()'
-      - name: Set environment variables
-        run: echo "DATADEPS_ALWAYS_ACCEPT=true" >> $GITHUB_ENV
       - name: Pre-accept DataDeps terms
         shell: julia --project=docs --color=yes {0}
         run: |
+          import Pkg
+          Pkg.add("DataDeps")
           using DataDeps
           DataDeps.force_accept()
       - name: Download SMS Spam Dataset

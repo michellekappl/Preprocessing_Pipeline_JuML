@@ -56,6 +56,11 @@ jobs:
         with:
           version: '1'
       - uses: julia-actions/cache@v2
+      - name: Download SMS Spam Dataset
+        shell: julia --project=docs --color=yes {0}
+        run: |
+          using MLDatasets
+          data = SMSSpamCollection()
       - name: Configure doc environment
         shell: julia --project=docs --color=yes {0}
         run: |

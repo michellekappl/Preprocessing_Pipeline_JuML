@@ -1,4 +1,3 @@
-using StringEncodings
 """
 
     standardize_document(doc::String)::String
@@ -37,7 +36,7 @@ end
 """
     standardize_text(pipe::NlpPipe) -> NlpPipe
 
-Applies the `standardize_document` function to each document in the corpus of the given `NlpPipe` object.
+Standardizes the text in the corpus by converting it to lowercase and replacing unusual characters with their standard counterparts.
 
 # Parameters
 - `pipe::NlpPipe`: An `NlpPipe` object containing a corpus and associated labels.

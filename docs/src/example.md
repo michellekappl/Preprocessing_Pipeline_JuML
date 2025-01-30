@@ -1,4 +1,4 @@
-## Elaborate example with SMS-spam-collection dataset
+## Elaborate Example using the SMS-spam-collection Dataset
 ```julia
 using MLDatasets: SMSSpamCollection
 using Preprocessing_Pipeline_JuML
@@ -7,7 +7,7 @@ using Preprocessing_Pipeline_JuML
 data = SMSSpamCollection()
 ```
 
-### Printing the first 5 samples
+**Step 1: Printing the 5 first samples**
 
 ```@example
 using MLDatasets: SMSSpamCollection  # hide
@@ -26,17 +26,24 @@ data = SMSSpamCollection() #hide
 println(data[1:5].targets)
 ```
 
-### Pipelining the data
+**Step 2: Pipelining the Data**
 
 ```@julia
 
-processed_data = NlpPipe(data.features, data.targets) |> mask_numbers |> remove_noise |> standardize_text |> tokenize |> remove_stop_words |> stemming |> bag_of_words
+processed_data = NlpPipe(data.features, data.targets) 
+                |> mask_numbers 
+                |> remove_noise 
+                |> standardize_text 
+                |> tokenize 
+                |> remove_stop_words 
+                |> stemming 
+                |> bag_of_words
 ```
 
-### Printing the first 5 samples
+**Step 3: Printing the processed data**
 
 
-### Tokens, i.e. the vectors
+***Tokens, i.e. The Vectors***
 ```@example
 using MLDatasets: SMSSpamCollection  # hide
 using Preprocessing_Pipeline_JuML  # hide
@@ -50,7 +57,7 @@ for token in processed_data.tokens[1:5]
     println(token)
 end
 ```
-### The vocabulary dictionary
+***The Vocabulary Dictionary***
 ```@example
 using MLDatasets: SMSSpamCollection  # hide
 using Preprocessing_Pipeline_JuML  # hide
@@ -63,7 +70,7 @@ processed_data = NlpPipe(data[1:5].features, data[1:5].targets) |> mask_numbers 
 
 println(processed_data.vocabulary)
 ```
-### The labels
+***The Labels***
 ```@example
 using MLDatasets: SMSSpamCollection  # hide
 using Preprocessing_Pipeline_JuML  # hide

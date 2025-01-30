@@ -17,7 +17,7 @@ makedocs(;
         "Home" => "index.md",
         "Getting Started" => "getting_started.md",
         "Functions" => "functions.md",
-        "Elaborate example" => "example.md"
+        "Elaborate Example" => "example.md"
         ]
 )
 

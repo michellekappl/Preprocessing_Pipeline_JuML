@@ -10,7 +10,6 @@ include("preprocessing/beforeTokenization/removeNoise.jl")
 include("preprocessing/beforeTokenization/maskNumbers.jl")
 include("preprocessing/beforeTokenization/expandContractions.jl")
 include("preprocessing/beforeTokenization/standardizeText.jl")
-include("preprocessing/afterTokenization/stemming.jl")
 include("preprocessing/afterTokenization/standardizeEncoding.jl")
 include("preprocessing/afterTokenization/removeStopWords.jl")
 include("preprocessing/afterTokenization/stemming.jl")
@@ -44,8 +43,5 @@ export
     bag_of_ngrams,
     bag_of_words,
     one_hot_encoding,
-    tf_idf,
-
-    #not for use, just to be able to include this in documentation
-    standardize_document
+    tf_idf
 end

@@ -13,6 +13,9 @@ CurrentModule = Preprocessing_Pipeline_JuML
 ## API Structure
 The package provides a set of pipeline stages that can be chained together to preprocess text data. The pipeline stages are implemented as functions that take a `NlpPipe` or `TokenizedNlpPipe` struct as input and return a modified object of the same type. This makes it easy to build custom preprocessing pipelines by piping together the desired stages.
 
+### Overview
+![Pipeline Diagram](pipeline_diagram.png)
+
 ## Features and Objects
 
 ### Features (for detailed explanation visit [here](functions.md#preprocessing-before-tokenization))
@@ -22,7 +25,7 @@ The package provides a set of pipeline stages that can be chained together to pr
     - expansion of contractions
     - masking of numbers
     - noise removal (punctuation, special characters, phone numbers, e-mail addresses, ...)
-    - text standardization (handle encoding & lowercasing)
+    - text standardization (lowercasing, remove ambiguous characters)
   - applied *after* Tokenization:
     - stopword removal
     - stemming
@@ -44,11 +47,7 @@ The package provides a set of pipeline stages that can be chained together to pr
 
 **`VectorizedNlpPipe`** Struct that holds vectorized text data (embeddings). Can be used for machine learning tasks.
 
-### Overview
-![Pipeline Diagram](pipeline_diagram.png)
-
-## Small example usage 
-### (for big example visit [here](example.md))
+## Usage Example
 
 ```@example
 using Preprocessing_Pipeline_JuML # hide

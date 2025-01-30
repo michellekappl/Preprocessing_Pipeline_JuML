@@ -1,7 +1,7 @@
 """
     one_hot_encoding(pipe::TokenizedNlpPipe) -> VectorizedNlpPipe
 
-Create a one-hot-encoding out of given TokenizedNlpPipe
+Create a one-hot-encoding out of given TokenizedNlpPipe.
 
 # Parameters
 - `pipe::TokenizedNlpPipe`: The input `TokenizedNlpPipe` object containing the tokenized documents.

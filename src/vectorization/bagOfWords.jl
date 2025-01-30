@@ -1,7 +1,7 @@
 """
     bag_of_words(pipe::TokenizedNlpPipe) -> VectorizedNlpPipe
 
-Create a bag-of-words-encoding out of given TokenizedNlpPipe
+Create a bag-of-words-encoding out of given TokenizedNlpPipe.
 
 # Parameters
 - `pipe::TokenizedNlpPipe`: The input `TokenizedNlpPipe` object containing the tokenized documents.

@@ -5,7 +5,7 @@ using SnowballStemmer
  
 Reduces words to their roots by removing pre- and suffixes. These are provided by [SnowballStemmer.jl](https://docs.juliahub.com/General/SnowballStemmer/stable/).
 
-# Arguments
+# Parameters
 - `pipe::TokenizedNlpPipe`: The input `TokenizedNlpPipe` object containing the tokens to be processed.
 - `language::String = "en"`: Defaults to english, other languages are possible
 

@@ -4,12 +4,12 @@ using StopWords: stopwords
     remove_stop_words(pipe::TokenizedNlpPipe; language::String="en", stop_words::Set{String}=Set{String}()) -> TokenizedNlpPipe
 
 Removes predefined stopwords. You can access the stop words for a given language using the language name or ISO 639 code. 
-For example, to get the stop words for English, you can use stopwords["eng"], stopwords["en"], or stopwords["English"].
 
+For example, to get the stop words for English, you can use stopwords["eng"], stopwords["en"], or stopwords["English"].
 Stop words sourced from [StopWords.jl](https://github.com/guo-yong-zhi/StopWords.jl/blob/main/README.md).
 
 
-# Arguments
+# Parameters
 - `pipe::TokenizedNlpPipe`: The input `TokenizedNlpPipe` object containing the tokens to be processed.
 - `language::String = "en"`: Defaults to english, other languages are possible (see linked github-page above)
 - `stop_words::Set{String} = Set{String}()`: Defaults to `StopWords.jl`-stopwords set, possible to set own stopword-set.

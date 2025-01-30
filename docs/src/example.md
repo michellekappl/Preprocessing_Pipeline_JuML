@@ -29,7 +29,6 @@ println(data[1:5].targets)
 **Step 2: Pipelining the Data**
 
 ```@julia
-
 processed_data = NlpPipe(data.features, data.targets) 
                 |> mask_numbers 
                 |> remove_noise 
@@ -42,8 +41,7 @@ processed_data = NlpPipe(data.features, data.targets)
 
 **Step 3: Printing the processed data**
 
-
-***Tokens, i.e. The Vectors***
+**_Tokens, i.e. The Vectors_**
 ```@example
 using MLDatasets: SMSSpamCollection  # hide
 using Preprocessing_Pipeline_JuML  # hide
@@ -57,7 +55,7 @@ for token in processed_data.tokens[1:5]
     println(token)
 end
 ```
-***The Vocabulary Dictionary***
+**_The Vocabulary Dictionary_**
 ```@example
 using MLDatasets: SMSSpamCollection  # hide
 using Preprocessing_Pipeline_JuML  # hide
@@ -70,7 +68,7 @@ processed_data = NlpPipe(data[1:5].features, data[1:5].targets) |> mask_numbers 
 
 println(processed_data.vocabulary)
 ```
-***The Labels***
+**_The Labels_**
 ```@example
 using MLDatasets: SMSSpamCollection  # hide
 using Preprocessing_Pipeline_JuML  # hide

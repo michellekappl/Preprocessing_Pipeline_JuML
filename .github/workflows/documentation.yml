@@ -23,6 +23,13 @@ jobs:
       - uses: julia-actions/cache@v2
       - name: Install dependencies
         run: julia --project=docs/ -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd())); Pkg.instantiate()'
+      - name: Set environment variable to auto-accept DataDeps
+        run: echo "DATADEPS_ALWAYS_ACCEPT=true" >> $GITHUB_ENV
+      - name: Download SMS Spam Dataset
+        shell: julia --project=docs --color=yes {0}
+        run: |
+          using MLDatasets
+          data = SMSSpamCollection()
       - name: Build and deploy
         env:
           #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # If authenticating with GitHub Actions token

@@ -1,20 +1,20 @@
 """
     bag_of_words(pipe::TokenizedNlpPipe) -> VectorizedNlpPipe
 
-Create a bag-of-words-encoding out of given TokenizedNlpPipe
+Create a bag-of-words-encoding out of given TokenizedNlpPipe.
 
 # Parameters
 - `pipe::TokenizedNlpPipe`: The input `TokenizedNlpPipe` object containing the tokenized documents.
 
 # Returns
-- A new `VectorizedNlpPipe` object with the bag-of-words vectors.
+- `VectorizedNlpPipe`: A new pipe object with the bag-of-words vectors.
 
 # Example Usage
 ```jldoctest repl
 julia> NlpPipe(["words one", "words two"]) |> tokenize |> bag_of_words
 VectorizedNlpPipe{Int64}([[0 1 1], [1 0 1]], Dict("two" => 1, "one" => 2, "words" => 3), nothing)
 ```
----
+
 """
 function bag_of_words(pipe::TokenizedNlpPipe)::VectorizedNlpPipe
     vocab_dict = get_vocab_dict(pipe.vocabulary)

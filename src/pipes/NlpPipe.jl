@@ -23,7 +23,8 @@ A simple pipeline structure for handling text data (corpus) and corresponding la
    **Throws** an `ArgumentError` if `labels` is not `nothing` and its length does not match the corpus length.
 
 # Example Usage
-## Creating a pipe from a corpus with multiple documents, inclusing labels
+---
+## Creating a pipe from a corpus with multiple documents, including labels
 ```jldoctest repl
 julia> pipe1 = NlpPipe(["document1", "document2"], ["label1", "label2"])
 NlpPipe(["document1", "document2"], ["label1", "label2"])
@@ -35,7 +36,7 @@ julia> pipe2 = NlpPipe(["document3"])
 NlpPipe(["document3"], nothing)
 ```
 ---
-## Creating a pipe from a single string corpus 
+## Creating a pipe from a single string corpus
 ```jldoctest repl
 julia> pipe3 = NlpPipe("single document") 
 NlpPipe(["single document"], nothing)
@@ -46,7 +47,6 @@ NlpPipe(["single document"], nothing)
 julia> NlpPipe(pipe1, corpus=["new_doc1", "new_doc2"])
 NlpPipe(["new_doc1", "new_doc2"], ["label1", "label2"])
 ```
----
 """
 struct NlpPipe
    corpus::Vector{String}

@@ -10,7 +10,7 @@ A structure for handling vectorized representations of tokenized text data, incl
 
 # Example Usage
 ---
-## Creating a pipe from an existing TokenizedNlpPipe instance (usual way to do it)
+### Creating a pipe from an existing TokenizedNlpPipe instance (usual way to do it)
 ```jldoctest repl
 julia> corpus = ["Hello world", "Julia is great"]
 2-element Vector{String}:
@@ -21,7 +21,7 @@ julia> NlpPipe(corpus) |> tokenize |> one_hot_encoding # (or any other vectoriza
 VectorizedNlpPipe{Int64}([[0 1 … 0 0; 0 0 … 0 1], [0 0 … 1 0; 0 0 … 0 0; 1 0 … 0 0]], Dict("great" => 1, "Hello" => 2, "is" => 3, "Julia" => 4, "world" => 5), nothing)
 ```
 ---
-## Creating a pipe from scratch
+### Creating a pipe from scratch
 ```jldoctest repl
 julia> tokens = [[1 2; 3 4], [5 6; 7 8]]  # Example word embeddings (each document is a matrix)
 2-element Vector{Matrix{Int64}}:
@@ -42,7 +42,7 @@ julia> labels = ["greeting", "statement"]
 julia> VectorizedNlpPipe(tokens, vocab, labels)
 VectorizedNlpPipe{Int64}([[1 2; 3 4], [5 6; 7 8]], Dict("hello" => 1, "Julia" => 3, "world" => 2), ["greeting", "statement"])
 ```
----
+
 """
 struct VectorizedNlpPipe{T<:Real}
    tokens::Vector{Matrix{T}}

@@ -15,7 +15,6 @@ Replaces all numbers in the text of the given `NlpPipe` corpus with a specified 
 julia> NlpPipe(["The price is 1000€."]) |> mask_numbers
 NlpPipe(["The price is <NUM>€."], nothing)
 ```
----
 """
 function mask_numbers(pipe::NlpPipe; replace_with::String="<NUM>")::NlpPipe
     corpus = map(document -> replace(document, r"\d+(?:\.\d+)?\b" => replace_with), pipe.corpus)

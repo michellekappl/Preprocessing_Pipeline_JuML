@@ -2,25 +2,25 @@ using SnowballStemmer
 
 """
     stemming(pipe::TokenizedNlpPipe; language::String="english") -> TokenizedNlpPipe
-
-Applies stemming to the tokens in the provided `TokenizedNlpPipe` based on the specified language.
-
-Stemming reduces words to their base or root form (e.g., "running" to "run"). This function uses the Snowball stemmer library, which supports multiple languages.
+ 
+Reduces words to their roots by removing pre- and suffixes. These are provided by [SnowballStemmer.jl](https://docs.juliahub.com/General/SnowballStemmer/stable/).
 
 # Parameters
-- `pipe::TokenizedNlpPipe``: The input pipeline containing tokenized data.
-- `language::String = "english"`: The language to use for stemming. Supported languages depend on the Snowball stemmer library.
+- `pipe::TokenizedNlpPipe`: The input `TokenizedNlpPipe` object containing the tokens to be processed.
+- `language::String = "en"`: Defaults to english, other languages are possible
 
 # Returns
-- A new `TokenizedNlpPipe` struct with the tokens replaced by their stemmed versions.
+- `TokenizedNlpPipe`: A new pipe object with the stemmed tokens.
 
 # Example Usage
-## Applying stemming with the default language (English)
+---
+### Applying stemming with the default language (English)
+
 ```jldoctest repl
 julia> NlpPipe(["This is a test for stemming"]) |> tokenize |> stemming
 TokenizedNlpPipe(["This is a test for stemming"], [["This", "is", "a", "test", "for", "stem"]], Set(["test", "is", "This", "stem", "a", "for"]), nothing)
 ```
----
+
 """
 function stemming(pipe::TokenizedNlpPipe; language::String="english")::TokenizedNlpPipe
     #create stemmer specified language
@@ -34,6 +34,7 @@ function stemming(pipe::TokenizedNlpPipe; language::String="english")::Tokenized
     end
     
     return TokenizedNlpPipe(pipe.corpus, stemmed_data, pipe.labels)
+
 end
 
-export stemming
+

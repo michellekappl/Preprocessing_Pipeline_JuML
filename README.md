@@ -10,21 +10,22 @@
 
 ## Features
 Refer to the diagram below to see explanation of all preprocessing and vectorize functions.
-- **Text preprocessing:** prepare textual data for machine learning tasks.
-  - To be applied _before_ tokenization:
-    - noise removal 
-    - text standardization
-    - contraction expansion
-    - number masking
-  - To be applied _after_ tokenization:
+- **Text preprocessing:** prepare textual data for machine learning tasks. Preprocessing steps include:
+  - applied *before* Tokenization:
+    - expansion of contractions
+    - masking of numbers
+    - noise removal (punctuation, special characters, phone numbers, e-mail addresses, ...)
+    - text standardization (lowercasing, remove ambiguous characters)
+  - applied *after* Tokenization:
+    - stopword removal
     - stemming
-    - stop word removal 
+    - standardization of token encoding
 - **Tokenization:** Split text into words or characters.
-- **Vectorization:** Transform text into machine-learning-compatible vector representations.
-  - bag of n grams 
-  - bag of words
-  - tf-Idf
-  - one hot encoding
+- **Vectorization:** Transform text into machine-learning-compatible vector representations
+  - one-hot encoding
+  - Bag of Words (BoW)
+  - Bag of N-Grams
+  - Term Frequency-Inverse Document Frequency (TF-IDF)
 
 ## API Structure
 The package provides a set of pipeline stages that can be chained together to preprocess text data. The pipeline stages are implemented as functions that take a `NlpPipe` or `TokenizedNlpPipe` struct as input and return a modified object of the same type. This makes it easy to build custom preprocessing pipelines by piping together the desired stages.
@@ -51,21 +52,13 @@ pipe = NlpPipe(corpus) |> remove_noise |> tokenize |> one_hot_encoding
 # Getting Started
 Follow the instructions below to install the package and start using it in your Julia environment.
 
-## Installation in REPL
-Clone the repository and include the package in your Julia environment:
+Install the package by running the following commands in the package management console (press `]` in Julia REPL).
 
-```bash
-git clone git@github.com:michellekappl/Preprocessing_Pipeline_JuML.git
-cd path/to/dir/Preprocessing_Pipeline_JuML
+```pkg
+activate --temp
+add https://github.com/michellekappl/Preprocessing_Pipeline_JuML
 ```
 
-Then, activate the package in Julia:
-
-```julia
-using Pkg
-Pkg.activate(".") 
-Pkg.instantiate()
-```
 This will install the required dependencies and make the package available in your Julia REPL.
 
 ## Use The Package

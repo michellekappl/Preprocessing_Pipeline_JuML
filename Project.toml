@@ -15,6 +15,7 @@ StopWords = "35248bf2-58a5-46a0-9b1d-c0a73a50a107"
 [compat]
 Documenter = "1.8"
 LiveServer = "1"
+MLDatasets = "0.7"
 Revise = "3"
 SnowballStemmer = "0.1"
 julia = "1.10"

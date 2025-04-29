@@ -13,6 +13,7 @@ SnowballStemmer = "0089d5a0-cc9e-11e8-15b2-431392cf18df"
 StopWords = "35248bf2-58a5-46a0-9b1d-c0a73a50a107"
 
 [compat]
+Coverage = "1"
 Documenter = "1.8"
 LiveServer = "1"
 Revise = "3"
